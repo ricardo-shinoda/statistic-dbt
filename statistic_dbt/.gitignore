@@ -1,0 +1,11 @@
+# dbt artifacts
+target/
+dbt_packages/
+logs/
+
+# Python virtual environment
+venv/
+*.pyc
+
+# Local profiles (caso você tenha movido para a pasta do projeto)
+profiles.yml

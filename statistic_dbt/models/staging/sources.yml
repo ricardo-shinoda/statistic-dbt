@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: postgres_raw # Nome interno para o dbt
+    schema: public      # Onde seu Python joga os dados
+    tables:
+      - name: pagamento_cartao
+      - name: pagamento_dinheiro

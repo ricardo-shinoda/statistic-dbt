@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_pagamento_cartao
+    description: "Limpeza inicial da tabela de pagamentos de cartão vinda do Python"
+    columns:
+      - name: pagamento_id
+        description: "Chave primária da transação"
+        tests:
+          - unique
+          - not_null
+      - name: valor
+        description: "Valor bruto da transação"
