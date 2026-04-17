@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_pagamento_cartao
+  - name: stg_card_payments
     description: "Limpeza inicial da tabela de pagamentos de cartão vinda do Python"
     columns:
       - name: pagamento_id

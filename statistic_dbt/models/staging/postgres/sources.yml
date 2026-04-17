@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: postgres_raw  # Nome que usaremos no dbt
+    database: statistic_db
+    schema: postgres_raw      # Onde as tabelas brutas moram hoje
+    tables:
+      - name: payment_card
+        description: "Raw data from payments made by credit card"
+      - name: payment_pix
+        description: "Raw data from payments made by pix or money transfer"
+      - name: nissan_kicks_consumption
+        description: "Raw data from car consumption"
+      - name: stock_movements
+        description: "Raw data from stock and investiments transactions" 
