@@ -9,6 +9,6 @@ select
     to_date("Data de Compra", 'DD/MM/YYYY') as purchased_at,
     lower("Descrição") as description,
     cast(null as varchar) as comments,
-    upper("Categoria") as category_name,
+    upper("Categoria") as original_category,
     cast('credit_card' as varchar) as payment_type
 from source_data

@@ -1,0 +1,8 @@
+search_keyword,category,sub_category,is_essential
+POSTO,Transporte,Combustível,true
+UBER,Transporte,Aplicativo,false
+MERCADO,Alimentação,Supermercado,true
+RESTAURANTE,Alimentação,Lazer,false
+AMAZON,Compras,Diversos,false
+NETFLIX,Lazer,Assinatura,false
+CONDOMINIO,Moradia,Fixo,true

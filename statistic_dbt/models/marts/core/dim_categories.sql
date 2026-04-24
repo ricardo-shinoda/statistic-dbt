@@ -5,7 +5,7 @@ with staging as (
 )
 
 select
-    category_name as category,
+    original_category as category,
     count(*) as total_transactions,
     sum(amount_brl) as total_acumulated_amount
 from staging

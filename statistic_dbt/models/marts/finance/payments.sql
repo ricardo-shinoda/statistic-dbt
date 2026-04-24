@@ -7,7 +7,7 @@ with card_payments as (
         purchased_at,
         description,
         comments,
-        category_name,
+        original_category,
         payment_type
     from {{ ref('stg_card_payments') }}
 ),
@@ -19,7 +19,7 @@ pix_payments as (
         purchased_at,
         description,
         comments,
-        category_name,
+        original_category,
         payment_type
     from {{ ref('stg_pix_payments') }}
 ),
@@ -41,7 +41,7 @@ select
          from mapping m 
          where upper(p.description) like '%' || upper(m.original) || '%'
          limit 1), 
-        p.category_name, 
+        p.original_category, 
         'TBD'
     ) as category_clean,
     

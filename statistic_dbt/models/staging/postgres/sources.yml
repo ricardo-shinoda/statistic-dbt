@@ -13,3 +13,5 @@ sources:
         description: "Raw data from car consumption"
       - name: stock_movements
         description: "Raw data from stock and investiments transactions" 
+      - name: income
+        description: "Raw data from income"

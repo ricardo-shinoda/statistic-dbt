@@ -12,6 +12,7 @@ select
     -- Valores Financeiros
     total as total_amount,
     desconto as discount_amount,
+    liters,
     preço_litro as price_per_liter,
     cashback_amount,
     

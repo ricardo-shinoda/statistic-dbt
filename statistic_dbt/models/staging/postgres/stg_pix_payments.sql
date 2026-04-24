@@ -10,7 +10,7 @@ select
     lower(descricao) as description,
     valor as amount_brl,
     lower(comentario) as comments,
-    upper(categoria) as category_name,
+    upper(categoria) as original_category,
     upper(subcategoria) as subcategory_name,
     cast('pix' as varchar) as payment_type
 from {{ source('postgres_raw', 'payment_pix') }}
