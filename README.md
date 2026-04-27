@@ -80,5 +80,3 @@ To ensure data integrity and pipeline health, it is recommended to run the follo
 * **API:** Google Drive API v3
 
 ---
-**Author:** Ricardo Shinoda
-**Role:** Data Engineer
