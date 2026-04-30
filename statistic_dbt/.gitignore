@@ -7,5 +7,6 @@ logs/
 venv/
 *.pyc
 
-# Local profiles (caso você tenha movido para a pasta do projeto)
+# Local profiles
 profiles.yml
+

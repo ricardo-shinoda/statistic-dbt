@@ -4,7 +4,6 @@ with raw_statements as (
     select * from {{ ref('stg_card_payments') }}
 ),
 
--- 1. Verifique se este nome aqui...
 categories_mapping as (
     select * from {{ ref('keyword_mapping') }}
 ),
@@ -20,7 +19,6 @@ refined as (
             else false
         end as is_original_generic
     from raw_statements t
-    -- 2. ...é exatamente o mesmo que este aqui!
     left join categories_mapping c 
         on t.description ilike '%' || c.search_keyword || '%'
 )
@@ -30,7 +28,7 @@ select
     purchased_at,
     description,
     amount_brl,
-    -- Lógica para priorizar o Seed se a origem for genérica
+    -- Prioritize SEED if the logic is generic
     case 
         when is_original_generic = true and matched_category is not null then matched_category
         else coalesce(original_category, 'Não Classificado')
@@ -41,6 +39,6 @@ select
         else 'Original do Cartão'
     end as final_sub_category,
 
-    -- Se não houver match, assume falso (ou nulo)
+    -- Null/False if there is no match
     coalesce(matched_is_essential, false) as is_essential
 from refined
