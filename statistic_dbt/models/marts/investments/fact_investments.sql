@@ -4,7 +4,7 @@ with movements as (
     select * from {{ ref('stg_stock_movements') }}
 ),
 
--- Consolidando a posição por ativo
+-- Consolidating active positions
 investment_position as (
     select
         ticker,

@@ -8,7 +8,7 @@ final as (
     select
         filled_at,
         odometer,
-        -- Cálculo de KM rodados entre abastecimentos (usando window function)
+        --  Km ran between tanks being filled (usando window function)
         odometer - lag(odometer) over (order by filled_at) as km_driven,
         
         fuel_type,
@@ -17,7 +17,7 @@ final as (
         total_amount,
         price_per_liter,
         
-        -- Eficiência real (KM/L)
+        -- Real eficiency (KM/L)
         case 
             when liters > 0 then (odometer - lag(odometer) over (order by filled_at)) / liters 
             else null 
