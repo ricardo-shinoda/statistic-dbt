@@ -6,6 +6,8 @@ logs/
 # Python virtual environment
 venv/
 *.pyc
+.vscode
+settings.json
 
 # Local profiles
 profiles.yml
