@@ -10,5 +10,6 @@ select
     lower("Descrição") as description,
     cast(null as varchar) as comments,
     upper("Categoria") as original_category,
-    cast('credit_card' as varchar) as payment_type
+    cast('credit_card' as varchar) as payment_type,
+    arquivo_origem as invoice_name
 from source_data

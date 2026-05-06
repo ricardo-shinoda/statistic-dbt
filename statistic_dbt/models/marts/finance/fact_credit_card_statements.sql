@@ -27,6 +27,7 @@ select
     payment_id,
     purchased_at,
     description,
+    invoice_name,
     amount_brl,
     -- Prioritize SEED if the logic is generic
     case 

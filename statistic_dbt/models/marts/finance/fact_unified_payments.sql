@@ -4,6 +4,7 @@ select
     payment_id,
     amount_brl,
     purchased_at,
+    invoice_name,
     description,
     comments,
     payment_type,
