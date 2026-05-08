@@ -2,12 +2,18 @@ version: 2
 
 models:
   - name: stg_card_payments
-    description: "Limpeza inicial da tabela de pagamentos de cartão vinda do Python"
+    description: 'Limpeza inicial da tabela de pagamentos de cartão vinda do Python'
     columns:
-      - name: pagamento_id
-        description: "Chave primária da transação"
+      - name: payment_id  # Verifique se o nome é payment_id ou pagamento_id conforme seu stg_card_payments.sql
+        description: 'Chave primária da transação'
         tests:
           - unique
           - not_null
-      - name: valor
-        description: "Valor bruto da transação"
+
+      - name: amount_brl
+        description: 'Valor bruto da transação'
+        tests:
+          # A sintaxe correta para testes de pacotes/expressões é esta:
+          - dbt_utils.expression_is_true:
+              expression: "amount_brl > -5000"
+              severity: warn

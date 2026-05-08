@@ -3,7 +3,6 @@ with source_data as (
 )
 
 select
-    -- Creating an ID since there is no id on .csv file
     md5("Data de Compra" || "Descrição" || "Valor (em R$)" || arquivo_origem) as payment_id,
     "Valor (em R$)" as amount_brl,
     to_date("Data de Compra", 'DD/MM/YYYY') as purchased_at,
@@ -11,5 +10,12 @@ select
     cast(null as varchar) as comments,
     upper("Categoria") as original_category,
     cast('credit_card' as varchar) as payment_type,
-    arquivo_origem as invoice_name
+    arquivo_origem as invoice_name,
+    -- Nova lógica: Identifica se é um pagamento de fatura ou ajuste interno
+    case 
+        when lower("Descrição") ilike '%inclusao de pagamento%' then true
+        when lower("Descrição") ilike '%pagamento efetuado%' then true
+        when lower("Descrição") ilike '%pagamento recebido%' then true
+        else false
+    end as is_payment_transaction
 from source_data
