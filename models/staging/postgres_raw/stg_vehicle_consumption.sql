@@ -14,6 +14,7 @@ select
     desconto as discount_amount,
     liters,
     preço_litro as price_per_liter,
+    litro_descontado as actual_price_per_liter,
     cashback_amount,
     
     -- Gas filling
