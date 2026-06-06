@@ -4,7 +4,7 @@ dbt_packages/
 logs/
 
 # Python virtual environment
-venv/
+.venv/
 *.pyc
 .vscode
 settings.json

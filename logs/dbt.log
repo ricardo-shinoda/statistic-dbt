@@ -6970,3 +6970,1193 @@ drop table if exists "statistic_db"."analytics"."fct_unified_payments__dbt_backu
 [0m07:55:51.552264 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5db3bad7f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5db3aaee10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5dade93d70>]}
 [0m07:55:51.552616 [debug] [MainThread]: Flushing usage events
 [0m07:55:52.259789 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:51:58.980156 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d1f5880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e27da60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e27d850>]}
+
+
+============================== 08:51:58.986178 | 98c02296-0c0a-494f-842a-b12b19c12954 ==============================
+[0m08:51:58.986178 [info ] [MainThread]: Running with dbt=1.10.20
+[0m08:51:58.987074 [debug] [MainThread]: running dbt with arguments {'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'log_format': 'default', 'debug': 'False', 'log_path': '/Users/ricardo/study/statistic-dbt/logs', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/Users/ricardo/.dbt', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'introspect': 'True', 'invocation_command': 'dbt seed', 'empty': 'None', 'no_print': 'None', 'target_path': 'None', 'partial_parse': 'True', 'version_check': 'True', 'warn_error': 'None', 'static_parser': 'True', 'write_json': 'True', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'use_colors': 'True', 'printer_width': '80', 'fail_fast': 'False'}
+[0m08:51:59.392695 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e670be0>]}
+[0m08:51:59.415871 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dae3760>]}
+[0m08:51:59.416543 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m08:51:59.481278 [debug] [MainThread]: checksum: a2dd717d56b7fa105aa967460f8408a71460d755763c8570e48c01c133187aea, vars: {}, profile: , target: , version: 1.10.20
+[0m08:51:59.481646 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m08:51:59.481807 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e97a6a0>]}
+[0m08:51:59.976025 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `dbt_utils.expression_is_true`. Arguments to
+generic tests should be nested under the `arguments` property.`
+[0m08:51:59.976263 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f6337c0>]}
+[0m08:52:00.064370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f7459a0>]}
+[0m08:52:00.107619 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m08:52:00.108505 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m08:52:00.118159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f73bd30>]}
+[0m08:52:00.118367 [info ] [MainThread]: Found 11 models, 2 seeds, 3 data tests, 5 sources, 447 macros
+[0m08:52:00.118511 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f798a30>]}
+[0m08:52:00.119087 [info ] [MainThread]: 
+[0m08:52:00.119227 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:52:00.119338 [info ] [MainThread]: 
+[0m08:52:00.119537 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:52:00.121097 [debug] [ThreadPool]: Acquiring new postgres connection 'list_statistic_db'
+[0m08:52:00.156544 [debug] [ThreadPool]: Using postgres connection "list_statistic_db"
+[0m08:52:00.156726 [debug] [ThreadPool]: On list_statistic_db: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:52:00.156835 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:52:00.233605 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.077 seconds
+[0m08:52:00.234342 [debug] [ThreadPool]: On list_statistic_db: Close
+[0m08:52:00.234686 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_statistic_db, now create_statistic_db_analytics)
+[0m08:52:00.234901 [debug] [ThreadPool]: Creating schema "database: "statistic_db"
+schema: "analytics"
+"
+[0m08:52:00.237812 [debug] [ThreadPool]: Using postgres connection "create_statistic_db_analytics"
+[0m08:52:00.237967 [debug] [ThreadPool]: On create_statistic_db_analytics: BEGIN
+[0m08:52:00.238088 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:52:00.243992 [debug] [ThreadPool]: SQL status: BEGIN in 0.006 seconds
+[0m08:52:00.244172 [debug] [ThreadPool]: Using postgres connection "create_statistic_db_analytics"
+[0m08:52:00.244314 [debug] [ThreadPool]: On create_statistic_db_analytics: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "create_statistic_db_analytics"} */
+create schema if not exists "analytics"
+[0m08:52:00.247766 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.003 seconds
+[0m08:52:00.248224 [debug] [ThreadPool]: On create_statistic_db_analytics: COMMIT
+[0m08:52:00.248374 [debug] [ThreadPool]: Using postgres connection "create_statistic_db_analytics"
+[0m08:52:00.248500 [debug] [ThreadPool]: On create_statistic_db_analytics: COMMIT
+[0m08:52:00.256508 [debug] [ThreadPool]: SQL status: COMMIT in 0.008 seconds
+[0m08:52:00.256687 [debug] [ThreadPool]: On create_statistic_db_analytics: Close
+[0m08:52:00.257749 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_statistic_db_analytics, now list_statistic_db_analytics)
+[0m08:52:00.260817 [debug] [ThreadPool]: Using postgres connection "list_statistic_db_analytics"
+[0m08:52:00.260975 [debug] [ThreadPool]: On list_statistic_db_analytics: BEGIN
+[0m08:52:00.261103 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:52:00.267952 [debug] [ThreadPool]: SQL status: BEGIN in 0.007 seconds
+[0m08:52:00.268138 [debug] [ThreadPool]: Using postgres connection "list_statistic_db_analytics"
+[0m08:52:00.268286 [debug] [ThreadPool]: On list_statistic_db_analytics: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db_analytics"} */
+select
+      'statistic_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics'
+  
+[0m08:52:00.273755 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.005 seconds
+[0m08:52:00.274308 [debug] [ThreadPool]: On list_statistic_db_analytics: ROLLBACK
+[0m08:52:00.274630 [debug] [ThreadPool]: On list_statistic_db_analytics: Close
+[0m08:52:00.277285 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.277464 [debug] [MainThread]: On master: BEGIN
+[0m08:52:00.277598 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:52:00.282361 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m08:52:00.282520 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.282695 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:52:00.285363 [debug] [MainThread]: SQL status: SELECT 0 in 0.002 seconds
+[0m08:52:00.285894 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f79fbb0>]}
+[0m08:52:00.286120 [debug] [MainThread]: On master: ROLLBACK
+[0m08:52:00.286427 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.286562 [debug] [MainThread]: On master: BEGIN
+[0m08:52:00.287017 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m08:52:00.287198 [debug] [MainThread]: On master: COMMIT
+[0m08:52:00.287345 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.287474 [debug] [MainThread]: On master: COMMIT
+[0m08:52:00.287782 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:52:00.287925 [debug] [MainThread]: On master: Close
+[0m08:52:00.290087 [debug] [Thread-1  ]: Began running node seed.statistic_dbt.category_mapping
+[0m08:52:00.290393 [info ] [Thread-1  ]: 1 of 2 START seed file analytics.category_mapping .............................. [RUN]
+[0m08:52:00.290608 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_statistic_db_analytics, now seed.statistic_dbt.category_mapping)
+[0m08:52:00.290762 [debug] [Thread-1  ]: Began compiling node seed.statistic_dbt.category_mapping
+[0m08:52:00.290911 [debug] [Thread-1  ]: Began executing node seed.statistic_dbt.category_mapping
+[0m08:52:00.306254 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m08:52:00.306449 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: BEGIN
+[0m08:52:00.306588 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:00.312043 [debug] [Thread-1  ]: SQL status: BEGIN in 0.005 seconds
+[0m08:52:00.312212 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m08:52:00.312355 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "seed.statistic_dbt.category_mapping"} */
+
+    create table "statistic_db"."analytics"."category_mapping" ("categoria" text,"original" text,"subcategoria" text)
+  
+[0m08:52:00.316865 [debug] [Thread-1  ]: SQL status: CREATE TABLE in 0.004 seconds
+[0m08:52:00.615341 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m08:52:00.615569 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: 
+          insert into "statistic_db"."analytics"."category_mapping" ("categoria", "original", "subcategoria") values
+          (%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s),(%s,%s,%s)...
+[0m08:52:00.628544 [debug] [Thread-1  ]: SQL status: INSERT 0 1551 in 0.013 seconds
+[0m08:52:00.630761 [debug] [Thread-1  ]: Writing runtime SQL for node "seed.statistic_dbt.category_mapping"
+[0m08:52:00.637592 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: COMMIT
+[0m08:52:00.637745 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m08:52:00.637871 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: COMMIT
+[0m08:52:00.640290 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:00.641086 [debug] [Thread-1  ]: On seed.statistic_dbt.category_mapping: Close
+[0m08:52:00.642111 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc45df0>]}
+[0m08:52:00.642335 [info ] [Thread-1  ]: 1 of 2 OK loaded seed file analytics.category_mapping .......................... [[32mINSERT 1551[0m in 0.35s]
+[0m08:52:00.642560 [debug] [Thread-1  ]: Finished running node seed.statistic_dbt.category_mapping
+[0m08:52:00.642708 [debug] [Thread-1  ]: Began running node seed.statistic_dbt.keyword_mapping
+[0m08:52:00.642924 [info ] [Thread-1  ]: 2 of 2 START seed file analytics.keyword_mapping ............................... [RUN]
+[0m08:52:00.643103 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly seed.statistic_dbt.category_mapping, now seed.statistic_dbt.keyword_mapping)
+[0m08:52:00.643234 [debug] [Thread-1  ]: Began compiling node seed.statistic_dbt.keyword_mapping
+[0m08:52:00.643358 [debug] [Thread-1  ]: Began executing node seed.statistic_dbt.keyword_mapping
+[0m08:52:00.645494 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m08:52:00.645629 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: BEGIN
+[0m08:52:00.645749 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:00.652853 [debug] [Thread-1  ]: SQL status: BEGIN in 0.007 seconds
+[0m08:52:00.653023 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m08:52:00.653147 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "seed.statistic_dbt.keyword_mapping"} */
+
+    create table "statistic_db"."analytics"."keyword_mapping" ("search_keyword" text,"category" text,"sub_category" text,"is_essential" boolean)
+  
+[0m08:52:00.659457 [debug] [Thread-1  ]: SQL status: CREATE TABLE in 0.006 seconds
+[0m08:52:00.661747 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m08:52:00.661881 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: 
+          insert into "statistic_db"."analytics"."keyword_mapping" ("search_keyword", "category", "sub_category", "is_essential") values
+          (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+      ...
+[0m08:52:00.662952 [debug] [Thread-1  ]: SQL status: INSERT 0 7 in 0.001 seconds
+[0m08:52:00.663188 [debug] [Thread-1  ]: Writing runtime SQL for node "seed.statistic_dbt.keyword_mapping"
+[0m08:52:00.663960 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: COMMIT
+[0m08:52:00.664099 [debug] [Thread-1  ]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m08:52:00.664225 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: COMMIT
+[0m08:52:00.666301 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:00.666604 [debug] [Thread-1  ]: On seed.statistic_dbt.keyword_mapping: Close
+[0m08:52:00.666829 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '98c02296-0c0a-494f-842a-b12b19c12954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d4ae4f0>]}
+[0m08:52:00.667026 [info ] [Thread-1  ]: 2 of 2 OK loaded seed file analytics.keyword_mapping ........................... [[32mINSERT 7[0m in 0.02s]
+[0m08:52:00.667236 [debug] [Thread-1  ]: Finished running node seed.statistic_dbt.keyword_mapping
+[0m08:52:00.667654 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.667792 [debug] [MainThread]: On master: BEGIN
+[0m08:52:00.667900 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:52:00.677950 [debug] [MainThread]: SQL status: BEGIN in 0.010 seconds
+[0m08:52:00.678074 [debug] [MainThread]: On master: COMMIT
+[0m08:52:00.678186 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:00.678283 [debug] [MainThread]: On master: COMMIT
+[0m08:52:00.678702 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:52:00.678810 [debug] [MainThread]: On master: Close
+[0m08:52:00.678953 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:52:00.679049 [debug] [MainThread]: Connection 'seed.statistic_dbt.keyword_mapping' was properly closed.
+[0m08:52:00.679168 [info ] [MainThread]: 
+[0m08:52:00.679292 [info ] [MainThread]: Finished running 2 seeds in 0 hours 0 minutes and 0.56 seconds (0.56s).
+[0m08:52:00.679601 [debug] [MainThread]: Command end result
+[0m08:52:00.730324 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m08:52:00.731103 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m08:52:00.733477 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ricardo/study/statistic-dbt/target/run_results.json
+[0m08:52:00.733599 [info ] [MainThread]: 
+[0m08:52:00.733766 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:52:00.733883 [info ] [MainThread]: 
+[0m08:52:00.734010 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m08:52:00.734219 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m08:52:00.752522 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": true, "command_wall_clock_time": 2.1886055, "process_in_blocks": "0", "process_kernel_time": 0.268468, "process_mem_max_rss": "161808384", "process_out_blocks": "0", "process_user_time": 2.183694}
+[0m08:52:00.752760 [debug] [MainThread]: Command `dbt seed` succeeded at 08:52:00.752724 after 2.19 seconds
+[0m08:52:00.752929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d1f5880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b92ec10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e670be0>]}
+[0m08:52:00.753086 [debug] [MainThread]: Flushing usage events
+[0m08:52:01.757479 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m08:52:03.076874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bba4fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc354c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc352b0>]}
+
+
+============================== 08:52:03.078646 | f0d5f37e-132d-4849-b811-bf1b55695fa0 ==============================
+[0m08:52:03.078646 [info ] [MainThread]: Running with dbt=1.10.20
+[0m08:52:03.078882 [debug] [MainThread]: running dbt with arguments {'log_path': '/Users/ricardo/study/statistic-dbt/logs', 'empty': 'False', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'static_parser': 'True', 'introspect': 'True', 'write_json': 'True', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'use_colors': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'target_path': 'None', 'debug': 'False', 'printer_width': '80', 'invocation_command': 'dbt run', 'indirect_selection': 'eager', 'log_format': 'default', 'warn_error': 'None', 'log_cache_events': 'False', 'partial_parse': 'True', 'profiles_dir': '/Users/ricardo/.dbt'}
+[0m08:52:03.146199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d11df70>]}
+[0m08:52:03.167331 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d31cd90>]}
+[0m08:52:03.167677 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m08:52:03.216298 [debug] [MainThread]: checksum: a2dd717d56b7fa105aa967460f8408a71460d755763c8570e48c01c133187aea, vars: {}, profile: , target: , version: 1.10.20
+[0m08:52:03.307473 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m08:52:03.307650 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m08:52:03.333088 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc44130>]}
+[0m08:52:03.376464 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m08:52:03.377154 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m08:52:03.381995 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc730d0>]}
+[0m08:52:03.382181 [info ] [MainThread]: Found 11 models, 2 seeds, 3 data tests, 5 sources, 447 macros
+[0m08:52:03.382320 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc7d220>]}
+[0m08:52:03.382983 [info ] [MainThread]: 
+[0m08:52:03.383119 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m08:52:03.383230 [info ] [MainThread]: 
+[0m08:52:03.383409 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m08:52:03.385202 [debug] [ThreadPool]: Acquiring new postgres connection 'list_statistic_db'
+[0m08:52:03.408254 [debug] [ThreadPool]: Using postgres connection "list_statistic_db"
+[0m08:52:03.408441 [debug] [ThreadPool]: On list_statistic_db: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m08:52:03.408553 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m08:52:03.428021 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.019 seconds
+[0m08:52:03.428576 [debug] [ThreadPool]: On list_statistic_db: Close
+[0m08:52:03.429333 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_statistic_db, now list_statistic_db_analytics)
+[0m08:52:03.431930 [debug] [ThreadPool]: Using postgres connection "list_statistic_db_analytics"
+[0m08:52:03.432058 [debug] [ThreadPool]: On list_statistic_db_analytics: BEGIN
+[0m08:52:03.432159 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m08:52:03.438985 [debug] [ThreadPool]: SQL status: BEGIN in 0.007 seconds
+[0m08:52:03.439099 [debug] [ThreadPool]: Using postgres connection "list_statistic_db_analytics"
+[0m08:52:03.439213 [debug] [ThreadPool]: On list_statistic_db_analytics: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db_analytics"} */
+select
+      'statistic_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics'
+  
+[0m08:52:03.441848 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.002 seconds
+[0m08:52:03.442305 [debug] [ThreadPool]: On list_statistic_db_analytics: ROLLBACK
+[0m08:52:03.442605 [debug] [ThreadPool]: On list_statistic_db_analytics: Close
+[0m08:52:03.444657 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:03.444783 [debug] [MainThread]: On master: BEGIN
+[0m08:52:03.444883 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m08:52:03.451322 [debug] [MainThread]: SQL status: BEGIN in 0.006 seconds
+[0m08:52:03.451452 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:03.451589 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m08:52:03.454341 [debug] [MainThread]: SQL status: SELECT 0 in 0.003 seconds
+[0m08:52:03.454742 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a5aeb50>]}
+[0m08:52:03.454916 [debug] [MainThread]: On master: ROLLBACK
+[0m08:52:03.455234 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:03.455341 [debug] [MainThread]: On master: BEGIN
+[0m08:52:03.455846 [debug] [MainThread]: SQL status: BEGIN in 0.000 seconds
+[0m08:52:03.455952 [debug] [MainThread]: On master: COMMIT
+[0m08:52:03.456055 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:03.456153 [debug] [MainThread]: On master: COMMIT
+[0m08:52:03.456485 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:52:03.456592 [debug] [MainThread]: On master: Close
+[0m08:52:03.457346 [debug] [Thread-1  ]: Began running node model.statistic_dbt.stg_card_payments
+[0m08:52:03.457542 [info ] [Thread-1  ]: 1 of 11 START sql view model analytics.stg_card_payments ....................... [RUN]
+[0m08:52:03.457725 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly list_statistic_db_analytics, now model.statistic_dbt.stg_card_payments)
+[0m08:52:03.457858 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.stg_card_payments
+[0m08:52:03.461118 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.461619 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.stg_card_payments
+[0m08:52:03.474892 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.475373 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.475512 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: BEGIN
+[0m08:52:03.475632 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.483781 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m08:52:03.483921 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.484066 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_card_payments"} */
+
+  create view "statistic_db"."analytics"."stg_card_payments__dbt_tmp"
+    
+    
+  as (
+    with source_data as (
+    select * from "statistic_db"."postgres_raw"."payment_card"
+)
+
+select
+    md5("Data de Compra" || "Descrição" || "Valor (em R$)" || arquivo_origem) as payment_id,
+    "Valor (em R$)" as amount_brl,
+    to_date("Data de Compra", 'DD/MM/YYYY') as purchased_at,
+    lower("Descrição") as description,
+    cast(null as varchar) as comments,
+    upper("Categoria") as original_category,
+    cast('credit_card' as varchar) as payment_type,
+    arquivo_origem as invoice_name,
+    -- Nova lógica: Identifica se é um pagamento de fatura ou ajuste interno
+    case 
+        when lower("Descrição") ilike '%inclusao de pagamento%' then true
+        when lower("Descrição") ilike '%pagamento efetuado%' then true
+        when lower("Descrição") ilike '%pagamento recebido%' then true
+        else false
+    end as is_payment_transaction
+from source_data
+  );
+[0m08:52:03.489959 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.006 seconds
+[0m08:52:03.492375 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.492528 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_card_payments"} */
+alter table "statistic_db"."analytics"."stg_card_payments__dbt_tmp" rename to "stg_card_payments"
+[0m08:52:03.493407 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.498672 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: COMMIT
+[0m08:52:03.498810 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.498930 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: COMMIT
+[0m08:52:03.504021 [debug] [Thread-1  ]: SQL status: COMMIT in 0.005 seconds
+[0m08:52:03.506854 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."stg_card_payments__dbt_backup"
+[0m08:52:03.508479 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_card_payments"
+[0m08:52:03.508626 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_card_payments"} */
+drop view if exists "statistic_db"."analytics"."stg_card_payments__dbt_backup" cascade
+[0m08:52:03.509416 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m08:52:03.510357 [debug] [Thread-1  ]: On model.statistic_dbt.stg_card_payments: Close
+[0m08:52:03.511030 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a4eaf40>]}
+[0m08:52:03.511276 [info ] [Thread-1  ]: 1 of 11 OK created sql view model analytics.stg_card_payments .................. [[32mCREATE VIEW[0m in 0.05s]
+[0m08:52:03.511499 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.stg_card_payments
+[0m08:52:03.511647 [debug] [Thread-1  ]: Began running node model.statistic_dbt.stg_income
+[0m08:52:03.511863 [info ] [Thread-1  ]: 2 of 11 START sql view model analytics.stg_income .............................. [RUN]
+[0m08:52:03.512082 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.stg_card_payments, now model.statistic_dbt.stg_income)
+[0m08:52:03.512224 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.stg_income
+[0m08:52:03.513336 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.stg_income"
+[0m08:52:03.513601 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.stg_income
+[0m08:52:03.515050 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.stg_income"
+[0m08:52:03.515316 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_income"
+[0m08:52:03.515450 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: BEGIN
+[0m08:52:03.515572 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.523148 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m08:52:03.523326 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_income"
+[0m08:52:03.523463 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_income"} */
+
+  create view "statistic_db"."analytics"."stg_income__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "statistic_db"."postgres_raw"."income"
+),
+
+renamed as (
+    select
+        cast("income_date" as date) as income_date,
+        lower(description) as description,
+        lower(receiver) as receiver,
+        lower(company) as company_paying,
+        cast("value" as decimal(10,2)) as amount,
+        dolar as dollar_cotation,
+        lower(intermediate_bank) as intermediate_bank,
+        arquivo_origem
+    from source
+    where "income_date" is not NULL
+        and "value" > 0
+
+)
+
+select * from renamed
+  );
+[0m08:52:03.530237 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.007 seconds
+[0m08:52:03.531574 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_income"
+[0m08:52:03.531746 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_income"} */
+alter table "statistic_db"."analytics"."stg_income__dbt_tmp" rename to "stg_income"
+[0m08:52:03.532751 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.533310 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: COMMIT
+[0m08:52:03.533453 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_income"
+[0m08:52:03.533582 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: COMMIT
+[0m08:52:03.537846 [debug] [Thread-1  ]: SQL status: COMMIT in 0.004 seconds
+[0m08:52:03.538870 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."stg_income__dbt_backup"
+[0m08:52:03.539204 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_income"
+[0m08:52:03.539343 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_income"} */
+drop view if exists "statistic_db"."analytics"."stg_income__dbt_backup" cascade
+[0m08:52:03.540032 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m08:52:03.540518 [debug] [Thread-1  ]: On model.statistic_dbt.stg_income: Close
+[0m08:52:03.540762 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d324250>]}
+[0m08:52:03.541023 [info ] [Thread-1  ]: 2 of 11 OK created sql view model analytics.stg_income ......................... [[32mCREATE VIEW[0m in 0.03s]
+[0m08:52:03.541247 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.stg_income
+[0m08:52:03.541403 [debug] [Thread-1  ]: Began running node model.statistic_dbt.stg_pix_payments
+[0m08:52:03.541623 [info ] [Thread-1  ]: 3 of 11 START sql view model analytics.stg_pix_payments ........................ [RUN]
+[0m08:52:03.541816 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.stg_income, now model.statistic_dbt.stg_pix_payments)
+[0m08:52:03.541967 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.stg_pix_payments
+[0m08:52:03.543259 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.543588 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.stg_pix_payments
+[0m08:52:03.545692 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.545972 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.546115 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: BEGIN
+[0m08:52:03.546247 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.553798 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m08:52:03.553989 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.554150 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_pix_payments"} */
+
+  create view "statistic_db"."analytics"."stg_pix_payments__dbt_tmp"
+    
+    
+  as (
+    with source_data as (
+    select * from "statistic_db"."postgres_raw"."payment_pix"
+)
+
+select
+    md5(cast(data_compra as varchar) || descricao || cast(valor as varchar) || arquivo_origem) as payment_id,
+    cast(data_compra as date) as purchased_at,
+    lower(cast(dia_semana as varchar)) as week_day_raw,
+    
+    -- AQUI ESTÁ O AJUSTE:
+    lower(descricao) as description, -- O banco tem 'descricao', o dbt quer 'description'
+    
+    valor as amount_brl,
+    lower(comentario) as comments,
+    upper(categoria) as original_category,
+    upper(subcategoria) as subcategory_name,
+    cast('pix' as varchar) as payment_type,
+    
+    case 
+        when lower(descricao) ilike '%fatura%' then true
+        when lower(descricao) ilike '%c6 bank%' then true
+        when upper(categoria) = 'PAGAMENTOS' and upper(subcategoria) = 'CARTÃO DE CRÉDITO' then true
+        else false
+    end as is_internal_transfer
+
+from source_data
+  );
+[0m08:52:03.558868 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.005 seconds
+[0m08:52:03.560240 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.560392 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_pix_payments"} */
+alter table "statistic_db"."analytics"."stg_pix_payments__dbt_tmp" rename to "stg_pix_payments"
+[0m08:52:03.561202 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.561771 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: COMMIT
+[0m08:52:03.561915 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.562047 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: COMMIT
+[0m08:52:03.564787 [debug] [Thread-1  ]: SQL status: COMMIT in 0.003 seconds
+[0m08:52:03.565818 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."stg_pix_payments__dbt_backup"
+[0m08:52:03.566121 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_pix_payments"
+[0m08:52:03.566262 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_pix_payments"} */
+drop view if exists "statistic_db"."analytics"."stg_pix_payments__dbt_backup" cascade
+[0m08:52:03.566745 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.000 seconds
+[0m08:52:03.567222 [debug] [Thread-1  ]: On model.statistic_dbt.stg_pix_payments: Close
+[0m08:52:03.567464 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d324250>]}
+[0m08:52:03.567723 [info ] [Thread-1  ]: 3 of 11 OK created sql view model analytics.stg_pix_payments ................... [[32mCREATE VIEW[0m in 0.03s]
+[0m08:52:03.567964 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.stg_pix_payments
+[0m08:52:03.568130 [debug] [Thread-1  ]: Began running node model.statistic_dbt.stg_stock_movements
+[0m08:52:03.568356 [info ] [Thread-1  ]: 4 of 11 START sql view model analytics.stg_stock_movements ..................... [RUN]
+[0m08:52:03.568581 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.stg_pix_payments, now model.statistic_dbt.stg_stock_movements)
+[0m08:52:03.568737 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.stg_stock_movements
+[0m08:52:03.570150 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.570497 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.stg_stock_movements
+[0m08:52:03.572111 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.572405 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.572551 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: BEGIN
+[0m08:52:03.572683 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.579874 [debug] [Thread-1  ]: SQL status: BEGIN in 0.007 seconds
+[0m08:52:03.580020 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.580176 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_stock_movements"} */
+
+  create view "statistic_db"."analytics"."stg_stock_movements__dbt_tmp"
+    
+    
+  as (
+    
+
+with source_data as (
+    select * from "statistic_db"."postgres_raw"."stock_movements"
+)
+
+select
+    -- Unique identifier (Hash Key)
+    md5(cast(transaction_date as varchar) || ticker || transaction_type || cast(quantity as varchar)) as stock_movement_id,
+    
+    -- Transactions atribute
+    lower(investor) as investor_name,
+    lower(transaction_type) as transaction_type,
+    cast(transaction_date as date) as traded_at,
+    upper(ticker) as ticker,
+    lower(organization) as company_name,
+    cnpj,
+    
+    -- Values and quantities
+    quantity,
+    unit_price,
+    total_amount,
+    
+    -- Tax and costs
+    "Taxa de liquidação" as settlement_fee,
+    "Emolumentos" as emoluments,
+    "IRFR s/ operações" as income_tax_withheld,
+    
+    -- control collumn and auxiliary from excel
+    "month" as report_month,
+    "To invest" as target_invest_amount,
+    "Difference" as price_difference,
+    
+    -- Metadada
+    arquivo_origem
+from source_data
+  );
+[0m08:52:03.583687 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.003 seconds
+[0m08:52:03.584991 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.585138 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_stock_movements"} */
+alter table "statistic_db"."analytics"."stg_stock_movements__dbt_tmp" rename to "stg_stock_movements"
+[0m08:52:03.585842 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.586394 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: COMMIT
+[0m08:52:03.586543 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.586673 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: COMMIT
+[0m08:52:03.589743 [debug] [Thread-1  ]: SQL status: COMMIT in 0.003 seconds
+[0m08:52:03.590804 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."stg_stock_movements__dbt_backup"
+[0m08:52:03.591121 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_stock_movements"
+[0m08:52:03.591267 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_stock_movements"} */
+drop view if exists "statistic_db"."analytics"."stg_stock_movements__dbt_backup" cascade
+[0m08:52:03.591940 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.001 seconds
+[0m08:52:03.592457 [debug] [Thread-1  ]: On model.statistic_dbt.stg_stock_movements: Close
+[0m08:52:03.592701 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d324250>]}
+[0m08:52:03.592961 [info ] [Thread-1  ]: 4 of 11 OK created sql view model analytics.stg_stock_movements ................ [[32mCREATE VIEW[0m in 0.02s]
+[0m08:52:03.593190 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.stg_stock_movements
+[0m08:52:03.593349 [debug] [Thread-1  ]: Began running node model.statistic_dbt.stg_vehicle_consumption
+[0m08:52:03.593574 [info ] [Thread-1  ]: 5 of 11 START sql view model analytics.stg_vehicle_consumption ................. [RUN]
+[0m08:52:03.593794 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.stg_stock_movements, now model.statistic_dbt.stg_vehicle_consumption)
+[0m08:52:03.593942 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.stg_vehicle_consumption
+[0m08:52:03.595808 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.596111 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.stg_vehicle_consumption
+[0m08:52:03.597715 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.598021 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.598179 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: BEGIN
+[0m08:52:03.598315 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.606115 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m08:52:03.606285 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.606445 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_vehicle_consumption"} */
+
+  create view "statistic_db"."analytics"."stg_vehicle_consumption__dbt_tmp"
+    
+    
+  as (
+    
+
+with source_data as (
+    select * from "statistic_db"."postgres_raw"."nissan_kicks_consumption"
+)
+
+select
+    -- Datas and odometer
+    cast(data as date) as filled_at,
+    odometro as odometer,
+    
+    -- Finance values
+    total as total_amount,
+    desconto as discount_amount,
+    liters,
+    preço_litro as price_per_liter,
+    litro_descontado as actual_price_per_liter,
+    cashback_amount,
+    
+    -- Gas filling
+    lower(combustível) as fuel_type,
+    lower(posto) as gas_station,
+    kmv_pontos as kmv_points,
+    
+    -- Calculation and comparison
+    comparativo_combustivel as fuel_comparison,
+    comparativo_preco as price_comparison,
+    
+    -- Data from vehicle computer
+    consumo_computador as trip_computer_consumption,
+    velocidade_media_computador as average_speed,
+    tempo_dirigido_computador as driving_time,
+    total_km_computador as total_km_computer,
+    km_restante_computador as remaining_range,
+    
+    -- Metadata
+    arquivo_origem
+from source_data
+  );
+[0m08:52:03.608841 [debug] [Thread-1  ]: SQL status: CREATE VIEW in 0.002 seconds
+[0m08:52:03.610148 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.610295 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_vehicle_consumption"} */
+alter table "statistic_db"."analytics"."stg_vehicle_consumption__dbt_tmp" rename to "stg_vehicle_consumption"
+[0m08:52:03.611188 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.611783 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: COMMIT
+[0m08:52:03.611936 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.612066 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: COMMIT
+[0m08:52:03.615967 [debug] [Thread-1  ]: SQL status: COMMIT in 0.004 seconds
+[0m08:52:03.616963 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."stg_vehicle_consumption__dbt_backup"
+[0m08:52:03.617314 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.stg_vehicle_consumption"
+[0m08:52:03.617465 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.stg_vehicle_consumption"} */
+drop view if exists "statistic_db"."analytics"."stg_vehicle_consumption__dbt_backup" cascade
+[0m08:52:03.617976 [debug] [Thread-1  ]: SQL status: DROP VIEW in 0.000 seconds
+[0m08:52:03.618460 [debug] [Thread-1  ]: On model.statistic_dbt.stg_vehicle_consumption: Close
+[0m08:52:03.618703 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d324250>]}
+[0m08:52:03.618966 [info ] [Thread-1  ]: 5 of 11 OK created sql view model analytics.stg_vehicle_consumption ............ [[32mCREATE VIEW[0m in 0.02s]
+[0m08:52:03.619195 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.stg_vehicle_consumption
+[0m08:52:03.619353 [debug] [Thread-1  ]: Began running node model.statistic_dbt.dim_categories
+[0m08:52:03.619579 [info ] [Thread-1  ]: 6 of 11 START sql table model analytics.dim_categories ......................... [RUN]
+[0m08:52:03.619815 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.stg_vehicle_consumption, now model.statistic_dbt.dim_categories)
+[0m08:52:03.619984 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.dim_categories
+[0m08:52:03.621355 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.dim_categories"
+[0m08:52:03.621780 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.dim_categories
+[0m08:52:03.631422 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.dim_categories"
+[0m08:52:03.631882 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.dim_categories"
+[0m08:52:03.632034 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: BEGIN
+[0m08:52:03.632169 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.643086 [debug] [Thread-1  ]: SQL status: BEGIN in 0.011 seconds
+[0m08:52:03.643238 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.dim_categories"
+[0m08:52:03.643380 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.dim_categories"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."dim_categories__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+with staging as (
+    select * from "statistic_db"."analytics"."stg_card_payments"
+)
+
+select
+    original_category as category,
+    count(*) as total_transactions,
+    sum(amount_brl) as total_acumulated_amount
+from staging
+group by 1
+  );
+  
+[0m08:52:03.654935 [debug] [Thread-1  ]: SQL status: SELECT 33 in 0.011 seconds
+[0m08:52:03.658021 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.dim_categories"
+[0m08:52:03.658189 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.dim_categories"} */
+alter table "statistic_db"."analytics"."dim_categories__dbt_tmp" rename to "dim_categories"
+[0m08:52:03.659083 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:03.659731 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: COMMIT
+[0m08:52:03.659884 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.dim_categories"
+[0m08:52:03.660021 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: COMMIT
+[0m08:52:03.663458 [debug] [Thread-1  ]: SQL status: COMMIT in 0.003 seconds
+[0m08:52:03.664525 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."dim_categories__dbt_backup"
+[0m08:52:03.665658 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.dim_categories"
+[0m08:52:03.665819 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.dim_categories"} */
+drop table if exists "statistic_db"."analytics"."dim_categories__dbt_backup" cascade
+[0m08:52:03.666350 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:03.666871 [debug] [Thread-1  ]: On model.statistic_dbt.dim_categories: Close
+[0m08:52:03.667126 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0fa040>]}
+[0m08:52:03.667405 [info ] [Thread-1  ]: 6 of 11 OK created sql table model analytics.dim_categories .................... [[32mSELECT 33[0m in 0.05s]
+[0m08:52:03.667642 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.dim_categories
+[0m08:52:03.667812 [debug] [Thread-1  ]: Began running node model.statistic_dbt.fct_credit_card_statements
+[0m08:52:03.668044 [info ] [Thread-1  ]: 7 of 11 START sql table model analytics.fct_credit_card_statements ............. [RUN]
+[0m08:52:03.668248 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.dim_categories, now model.statistic_dbt.fct_credit_card_statements)
+[0m08:52:03.668407 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.fct_credit_card_statements
+[0m08:52:03.670251 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.670611 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.fct_credit_card_statements
+[0m08:52:03.672278 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.672666 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.672813 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: BEGIN
+[0m08:52:03.672946 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.681475 [debug] [Thread-1  ]: SQL status: BEGIN in 0.009 seconds
+[0m08:52:03.681655 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.681859 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_credit_card_statements"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."fct_credit_card_statements__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- 
+
+-- with raw_statements as (
+--     select * from "statistic_db"."analytics"."stg_card_payments"
+-- ),
+
+-- categories_mapping as (
+--     select * from "statistic_db"."analytics"."keyword_mapping"
+-- ),
+
+-- refined as (
+--     select 
+--         t.*,
+--         c.category as matched_category,
+--         c.sub_category as matched_sub_category,
+--         c.is_essential as matched_is_essential,
+--         case 
+--             when t.original_category in ('Outros', 'Serviços', 'Diversos', '', null) then true
+--             else false
+--         end as is_original_generic
+--     from raw_statements t
+--     left join categories_mapping c 
+--         on t.description ilike '%' || c.search_keyword || '%'
+-- )
+
+-- select
+--     payment_id,
+--     purchased_at,
+--     description,
+--     invoice_name,
+--     amount_brl,
+--     -- Prioritize SEED if the logic is generic
+--     case 
+--         when is_original_generic = true and matched_category is not null then matched_category
+--         else coalesce(original_category, 'Não Classificado')
+--     end as final_category,
+
+--     case 
+--         when is_original_generic = true and matched_sub_category is not null then matched_sub_category
+--         else 'Original do Cartão'
+--     end as final_sub_category,
+
+--     -- Null/False if there is no match
+--     coalesce(matched_is_essential, false) as is_essential
+-- from refined
+
+
+
+with raw_statements as (
+    select * from "statistic_db"."analytics"."stg_card_payments"
+    where is_payment_transaction = false -- <--- O FILTRO ENTRA AQUI
+),
+
+categories_mapping as (
+    select * from "statistic_db"."analytics"."keyword_mapping"
+),
+
+refined as (
+    select 
+        t.*,
+        c.category as matched_category,
+        c.sub_category as matched_sub_category,
+        c.is_essential as matched_is_essential,
+        case 
+            when t.original_category in ('Outros', 'Serviços', 'Diversos', '', null) then true
+            else false
+        end as is_original_generic
+    from raw_statements t
+    left join categories_mapping c 
+        -- Aqui está o segredo para a Natura: 
+        -- Se o seed tiver 'natura', ele vai bater aqui e trazer a categoria certa
+        on t.description ilike '%' || c.search_keyword || '%'
+)
+
+select
+    payment_id,
+    purchased_at,
+    description,
+    invoice_name,
+    amount_brl,
+    case 
+        when is_original_generic = true and matched_category is not null then matched_category
+        else coalesce(original_category, 'Não Classificado')
+    end as final_category,
+
+    case 
+        when is_original_generic = true and matched_sub_category is not null then matched_sub_category
+        else 'Original do Cartão'
+    end as final_sub_category,
+
+    coalesce(matched_is_essential, false) as is_essential
+from refined
+  );
+  
+[0m08:52:03.718522 [debug] [Thread-1  ]: SQL status: SELECT 1719 in 0.036 seconds
+[0m08:52:03.720494 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.720695 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_credit_card_statements"} */
+alter table "statistic_db"."analytics"."fct_credit_card_statements__dbt_tmp" rename to "fct_credit_card_statements"
+[0m08:52:03.721223 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m08:52:03.721929 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: COMMIT
+[0m08:52:03.722115 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.722282 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: COMMIT
+[0m08:52:03.724765 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:03.726108 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."fct_credit_card_statements__dbt_backup"
+[0m08:52:03.726512 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_credit_card_statements"
+[0m08:52:03.726693 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_credit_card_statements"} */
+drop table if exists "statistic_db"."analytics"."fct_credit_card_statements__dbt_backup" cascade
+[0m08:52:03.727135 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:03.727798 [debug] [Thread-1  ]: On model.statistic_dbt.fct_credit_card_statements: Close
+[0m08:52:03.728128 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d324250>]}
+[0m08:52:03.728484 [info ] [Thread-1  ]: 7 of 11 OK created sql table model analytics.fct_credit_card_statements ........ [[32mSELECT 1719[0m in 0.06s]
+[0m08:52:03.728784 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.fct_credit_card_statements
+[0m08:52:03.728993 [debug] [Thread-1  ]: Began running node model.statistic_dbt.payments
+[0m08:52:03.729266 [info ] [Thread-1  ]: 8 of 11 START sql table model analytics.payments ............................... [RUN]
+[0m08:52:03.729505 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.fct_credit_card_statements, now model.statistic_dbt.payments)
+[0m08:52:03.729690 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.payments
+[0m08:52:03.732340 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.payments"
+[0m08:52:03.732715 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.payments
+[0m08:52:03.734630 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.payments"
+[0m08:52:03.734953 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.payments"
+[0m08:52:03.735122 [debug] [Thread-1  ]: On model.statistic_dbt.payments: BEGIN
+[0m08:52:03.735279 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:03.741388 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m08:52:03.741599 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.payments"
+[0m08:52:03.741797 [debug] [Thread-1  ]: On model.statistic_dbt.payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.payments"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."payments__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+with card_payments as (
+    select 
+        payment_id, amount_brl, purchased_at, invoice_name,
+        description, comments, original_category, payment_type,
+        is_payment_transaction, -- <--- Trazer do stage
+        false as is_internal_transfer -- Flag falsa para manter o schema igual
+    from "statistic_db"."analytics"."stg_card_payments"
+),
+
+pix_payments as (
+    select 
+        payment_id, amount_brl, purchased_at, cast(null as text) as invoice_name,
+        description, comments, original_category, payment_type,
+        false as is_payment_transaction, -- Flag falsa para manter o schema igual
+        is_internal_transfer -- <--- Trazer do stage
+    from "statistic_db"."analytics"."stg_pix_payments"
+),
+
+unioned_payments as (
+    select * from card_payments
+    union all
+    select * from pix_payments
+),
+
+mapping as (
+    select * from "statistic_db"."analytics"."category_mapping"
+)
+
+select
+    p.*,
+    coalesce(
+        (select m.categoria 
+         from mapping m 
+         where upper(p.description) like '%' || upper(m.original) || '%'
+         limit 1), 
+        p.original_category, 
+        'TBD'
+    ) as category_clean,
+    
+    coalesce(
+        (select m.subcategoria 
+         from mapping m 
+         where upper(p.description) like '%' || upper(m.original) || '%'
+         limit 1), 
+        'General'
+    ) as subcategory_clean
+from unioned_payments p
+  );
+  
+[0m08:52:05.791712 [debug] [Thread-1  ]: SQL status: SELECT 3452 in 2.049 seconds
+[0m08:52:05.798516 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.payments"
+[0m08:52:05.799249 [debug] [Thread-1  ]: On model.statistic_dbt.payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.payments"} */
+alter table "statistic_db"."analytics"."payments__dbt_tmp" rename to "payments"
+[0m08:52:05.800177 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.001 seconds
+[0m08:52:05.802043 [debug] [Thread-1  ]: On model.statistic_dbt.payments: COMMIT
+[0m08:52:05.802553 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.payments"
+[0m08:52:05.802893 [debug] [Thread-1  ]: On model.statistic_dbt.payments: COMMIT
+[0m08:52:05.805325 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:05.809330 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."payments__dbt_backup"
+[0m08:52:05.810611 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.payments"
+[0m08:52:05.811042 [debug] [Thread-1  ]: On model.statistic_dbt.payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.payments"} */
+drop table if exists "statistic_db"."analytics"."payments__dbt_backup" cascade
+[0m08:52:05.811846 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:05.813452 [debug] [Thread-1  ]: On model.statistic_dbt.payments: Close
+[0m08:52:05.814154 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be93430>]}
+[0m08:52:05.814796 [info ] [Thread-1  ]: 8 of 11 OK created sql table model analytics.payments .......................... [[32mSELECT 3452[0m in 2.08s]
+[0m08:52:05.815301 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.payments
+[0m08:52:05.815621 [debug] [Thread-1  ]: Began running node model.statistic_dbt.fct_investments
+[0m08:52:05.816164 [info ] [Thread-1  ]: 9 of 11 START sql table model analytics.fct_investments ........................ [RUN]
+[0m08:52:05.816766 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.payments, now model.statistic_dbt.fct_investments)
+[0m08:52:05.817131 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.fct_investments
+[0m08:52:05.820433 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.fct_investments"
+[0m08:52:05.820989 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.fct_investments
+[0m08:52:05.824093 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.fct_investments"
+[0m08:52:05.824811 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_investments"
+[0m08:52:05.824967 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: BEGIN
+[0m08:52:05.825105 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:05.833276 [debug] [Thread-1  ]: SQL status: BEGIN in 0.008 seconds
+[0m08:52:05.833493 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_investments"
+[0m08:52:05.833658 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_investments"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."fct_investments__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+with movements as (
+    select * from "statistic_db"."analytics"."stg_stock_movements"
+),
+
+-- Consolidating active positions
+investment_position as (
+    select
+        ticker,
+        company_name,
+        sum(case when transaction_type = 'compra' then quantity else -quantity end) as current_quantity,
+        sum(case when transaction_type = 'compra' then total_amount else 0 end) as total_cost_basis,
+        -- Preço Médio
+        sum(case when transaction_type = 'compra' then total_amount else 0 end) / 
+        nullif(sum(case when transaction_type = 'compra' then quantity else 0 end), 0) as average_buy_price
+    from movements
+    group by 1, 2
+)
+
+select 
+    ticker,
+    company_name,
+    current_quantity,
+    average_buy_price,
+    total_cost_basis as total_invested_brl
+from investment_position
+where current_quantity > 0
+  );
+  
+[0m08:52:05.839027 [debug] [Thread-1  ]: SQL status: SELECT 13 in 0.005 seconds
+[0m08:52:05.841538 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_investments"
+[0m08:52:05.841901 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_investments"} */
+alter table "statistic_db"."analytics"."fct_investments__dbt_tmp" rename to "fct_investments"
+[0m08:52:05.842408 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m08:52:05.843224 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: COMMIT
+[0m08:52:05.843524 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_investments"
+[0m08:52:05.843699 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: COMMIT
+[0m08:52:05.845937 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:05.847096 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."fct_investments__dbt_backup"
+[0m08:52:05.847430 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_investments"
+[0m08:52:05.847584 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_investments"} */
+drop table if exists "statistic_db"."analytics"."fct_investments__dbt_backup" cascade
+[0m08:52:05.847918 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:05.848451 [debug] [Thread-1  ]: On model.statistic_dbt.fct_investments: Close
+[0m08:52:05.848720 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0b1d90>]}
+[0m08:52:05.848996 [info ] [Thread-1  ]: 9 of 11 OK created sql table model analytics.fct_investments ................... [[32mSELECT 13[0m in 0.03s]
+[0m08:52:05.849230 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.fct_investments
+[0m08:52:05.849394 [debug] [Thread-1  ]: Began running node model.statistic_dbt.fct_vehicle_consumption
+[0m08:52:05.849627 [info ] [Thread-1  ]: 10 of 11 START sql table model analytics.fct_vehicle_consumption ............... [RUN]
+[0m08:52:05.849821 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.fct_investments, now model.statistic_dbt.fct_vehicle_consumption)
+[0m08:52:05.849974 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.fct_vehicle_consumption
+[0m08:52:05.851583 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.852053 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.fct_vehicle_consumption
+[0m08:52:05.853919 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.854313 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.854462 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: BEGIN
+[0m08:52:05.854600 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:05.860289 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m08:52:05.860497 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.860674 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_vehicle_consumption"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."fct_vehicle_consumption__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+with staging as (
+    select * from "statistic_db"."analytics"."stg_vehicle_consumption"
+),
+
+final as (
+    select
+        filled_at,
+        odometer,
+        --  Km ran between tanks being filled (usando window function)
+        odometer - lag(odometer) over (order by filled_at) as km_driven,
+        
+        fuel_type,
+        gas_station,
+        liters,
+        total_amount,
+        price_per_liter,
+        
+        -- Real eficiency (KM/L)
+        case 
+            when liters > 0 then (odometer - lag(odometer) over (order by filled_at)) / liters 
+            else null 
+        end as km_per_liter,
+        
+        -- Custo por KM
+        case 
+            when (odometer - lag(odometer) over (order by filled_at)) > 0 
+            then total_amount / (odometer - lag(odometer) over (order by filled_at))
+            else null 
+        end as cost_per_km,
+
+        trip_computer_consumption as onboard_computer_km_l,
+        arquivo_origem
+    from staging
+)
+
+select * from final
+  );
+  
+[0m08:52:05.864276 [debug] [Thread-1  ]: SQL status: SELECT 56 in 0.003 seconds
+[0m08:52:05.866083 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.866252 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_vehicle_consumption"} */
+alter table "statistic_db"."analytics"."fct_vehicle_consumption__dbt_tmp" rename to "fct_vehicle_consumption"
+[0m08:52:05.866784 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m08:52:05.867530 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: COMMIT
+[0m08:52:05.867691 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.867832 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: COMMIT
+[0m08:52:05.869811 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:05.870945 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."fct_vehicle_consumption__dbt_backup"
+[0m08:52:05.871474 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_vehicle_consumption"
+[0m08:52:05.871666 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_vehicle_consumption"} */
+drop table if exists "statistic_db"."analytics"."fct_vehicle_consumption__dbt_backup" cascade
+[0m08:52:05.872021 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:05.872649 [debug] [Thread-1  ]: On model.statistic_dbt.fct_vehicle_consumption: Close
+[0m08:52:05.872945 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e32d3a0>]}
+[0m08:52:05.873260 [info ] [Thread-1  ]: 10 of 11 OK created sql table model analytics.fct_vehicle_consumption .......... [[32mSELECT 56[0m in 0.02s]
+[0m08:52:05.873523 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.fct_vehicle_consumption
+[0m08:52:05.873707 [debug] [Thread-1  ]: Began running node model.statistic_dbt.fct_unified_payments
+[0m08:52:05.873958 [info ] [Thread-1  ]: 11 of 11 START sql table model analytics.fct_unified_payments .................. [RUN]
+[0m08:52:05.874171 [debug] [Thread-1  ]: Re-using an available connection from the pool (formerly model.statistic_dbt.fct_vehicle_consumption, now model.statistic_dbt.fct_unified_payments)
+[0m08:52:05.874335 [debug] [Thread-1  ]: Began compiling node model.statistic_dbt.fct_unified_payments
+[0m08:52:05.875842 [debug] [Thread-1  ]: Writing injected SQL for node "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.876203 [debug] [Thread-1  ]: Began executing node model.statistic_dbt.fct_unified_payments
+[0m08:52:05.878719 [debug] [Thread-1  ]: Writing runtime sql for node "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.879055 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.879277 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: BEGIN
+[0m08:52:05.879444 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m08:52:05.885188 [debug] [Thread-1  ]: SQL status: BEGIN in 0.006 seconds
+[0m08:52:05.885527 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.885710 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_unified_payments"} */
+
+  
+    
+
+  create  table "statistic_db"."analytics"."fct_unified_payments__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+select
+    payment_id,
+    amount_brl,
+    purchased_at,
+    invoice_name,
+    description,
+    comments,
+    payment_type,
+    category_clean as category_name,
+    subcategory_clean as subcategory_name,
+    -- Adicione estas duas para poder validar no banco:
+    is_internal_transfer,
+    is_payment_transaction
+from "statistic_db"."analytics"."payments"
+  );
+  
+[0m08:52:05.892498 [debug] [Thread-1  ]: SQL status: SELECT 3452 in 0.007 seconds
+[0m08:52:05.894404 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.894588 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_unified_payments"} */
+alter table "statistic_db"."analytics"."fct_unified_payments__dbt_tmp" rename to "fct_unified_payments"
+[0m08:52:05.895007 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.000 seconds
+[0m08:52:05.895696 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: COMMIT
+[0m08:52:05.895874 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.896027 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: COMMIT
+[0m08:52:05.898641 [debug] [Thread-1  ]: SQL status: COMMIT in 0.002 seconds
+[0m08:52:05.899906 [debug] [Thread-1  ]: Applying DROP to: "statistic_db"."analytics"."fct_unified_payments__dbt_backup"
+[0m08:52:05.900270 [debug] [Thread-1  ]: Using postgres connection "model.statistic_dbt.fct_unified_payments"
+[0m08:52:05.900435 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: /* {"app": "dbt", "dbt_version": "1.10.20", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "model.statistic_dbt.fct_unified_payments"} */
+drop table if exists "statistic_db"."analytics"."fct_unified_payments__dbt_backup" cascade
+[0m08:52:05.900801 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.000 seconds
+[0m08:52:05.901459 [debug] [Thread-1  ]: On model.statistic_dbt.fct_unified_payments: Close
+[0m08:52:05.901773 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f0d5f37e-132d-4849-b811-bf1b55695fa0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0b1a60>]}
+[0m08:52:05.902103 [info ] [Thread-1  ]: 11 of 11 OK created sql table model analytics.fct_unified_payments ............. [[32mSELECT 3452[0m in 0.03s]
+[0m08:52:05.902382 [debug] [Thread-1  ]: Finished running node model.statistic_dbt.fct_unified_payments
+[0m08:52:05.902919 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:05.903077 [debug] [MainThread]: On master: BEGIN
+[0m08:52:05.903217 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m08:52:05.908475 [debug] [MainThread]: SQL status: BEGIN in 0.005 seconds
+[0m08:52:05.908634 [debug] [MainThread]: On master: COMMIT
+[0m08:52:05.908846 [debug] [MainThread]: Using postgres connection "master"
+[0m08:52:05.908985 [debug] [MainThread]: On master: COMMIT
+[0m08:52:05.909256 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m08:52:05.909433 [debug] [MainThread]: On master: Close
+[0m08:52:05.909918 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m08:52:05.910286 [debug] [MainThread]: Connection 'model.statistic_dbt.fct_unified_payments' was properly closed.
+[0m08:52:05.910515 [info ] [MainThread]: 
+[0m08:52:05.910682 [info ] [MainThread]: Finished running 6 table models, 5 view models in 0 hours 0 minutes and 2.53 seconds (2.53s).
+[0m08:52:05.911576 [debug] [MainThread]: Command end result
+[0m08:52:05.924193 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m08:52:05.925091 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m08:52:05.928320 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ricardo/study/statistic-dbt/target/run_results.json
+[0m08:52:05.928466 [info ] [MainThread]: 
+[0m08:52:05.928641 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m08:52:05.928775 [info ] [MainThread]: 
+[0m08:52:05.928921 [info ] [MainThread]: Done. PASS=11 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=11
+[0m08:52:05.930527 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.895551, "process_in_blocks": "0", "process_kernel_time": 0.149222, "process_mem_max_rss": "151617536", "process_out_blocks": "0", "process_user_time": 1.495458}
+[0m08:52:05.930700 [debug] [MainThread]: Command `dbt run` succeeded at 08:52:05.930667 after 2.90 seconds
+[0m08:52:05.930865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bba4fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c4a3e20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b0ef460>]}
+[0m08:52:05.931024 [debug] [MainThread]: Flushing usage events
+[0m08:52:06.723119 [debug] [MainThread]: An error was encountered while trying to flush usage events
