@@ -11,7 +11,6 @@ select
     upper("Categoria") as original_category,
     cast('credit_card' as varchar) as payment_type,
     arquivo_origem as invoice_name,
-    -- Nova lógica: Identifica se é um pagamento de fatura ou ajuste interno
     case 
         when lower("Descrição") ilike '%inclusao de pagamento%' then true
         when lower("Descrição") ilike '%pagamento efetuado%' then true

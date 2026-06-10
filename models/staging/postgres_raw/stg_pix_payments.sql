@@ -7,8 +7,7 @@ select
     cast(data_compra as date) as purchased_at,
     lower(cast(dia_semana as varchar)) as week_day_raw,
     
-    -- AQUI ESTÁ O AJUSTE:
-    lower(descricao) as description, -- O banco tem 'descricao', o dbt quer 'description'
+    lower(descricao) as description,
     
     valor as amount_brl,
     lower(comentario) as comments,

@@ -3,11 +3,9 @@
 ) }}
 
 with dados_consolidados as (
-    -- 1. Calcula tanto as cotas quanto o valor financeiro investido direto da RAW
     select
         investor,
         ticker,
-        -- Regra para cotas ordinárias (Ações/FIIs)
         coalesce(sum(
             case 
                 when transaction_type = 'Compra' then quantity
@@ -15,7 +13,6 @@ with dados_consolidados as (
                 else 0 
             end
         ), 0) as quantidade_cotas,
-        -- Regra para o valor financeiro acumulado (usando o CDB) com a coluna correta
         coalesce(sum(
             case 
                 when transaction_type = 'Compra' then total_amount
@@ -29,14 +26,12 @@ with dados_consolidados as (
 ),
 
 precos_mercado as (
-    -- 2. Busca os preços que o seu script Python atualizou no banco
     select 
         ticker,
         current_price
     from postgres_raw.current_prices
 )
 
--- 3. Monta o resultado final aplicando a exceção para o CDB
 select
     d.investor,
     d.ticker,
