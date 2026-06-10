@@ -9,7 +9,7 @@ select
     md5(cast(transaction_date as varchar) || ticker || transaction_type || cast(quantity as varchar)) as stock_movement_id,
     
     -- Transactions atribute
-    lower(investor) as investor_name,
+    lower(investor) as investor,
     lower(transaction_type) as transaction_type,
     cast(transaction_date as date) as traded_at,
     upper(ticker) as ticker,
