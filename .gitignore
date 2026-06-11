@@ -7,8 +7,9 @@ logs/
 .venv/
 *.pyc
 .vscode
-settings.json
+.env
 
 # Local profiles
 profiles.yml
+settings.json
 

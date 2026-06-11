@@ -4,8 +4,8 @@ with card_payments as (
     select 
         payment_id, amount_brl, purchased_at, invoice_name,
         description, comments, original_category, payment_type,
-        is_payment_transaction, -- <--- Trazer do stage
-        false as is_internal_transfer -- Flag falsa para manter o schema igual
+        is_payment_transaction,
+        false as is_internal_transfer
     from {{ ref('stg_card_payments') }}
 ),
 
@@ -13,8 +13,8 @@ pix_payments as (
     select 
         payment_id, amount_brl, purchased_at, cast(null as text) as invoice_name,
         description, comments, original_category, payment_type,
-        false as is_payment_transaction, -- Flag falsa para manter o schema igual
-        is_internal_transfer -- <--- Trazer do stage
+        false as is_payment_transaction,
+        is_internal_transfer
     from {{ ref('stg_pix_payments') }}
 ),
 

@@ -4,14 +4,13 @@ with movements as (
     select * from {{ ref('stg_stock_movements') }}
 ),
 
--- Consolidating active positions
 investment_position as (
     select
         ticker,
         company_name,
         sum(case when transaction_type = 'compra' then quantity else -quantity end) as current_quantity,
         sum(case when transaction_type = 'compra' then total_amount else 0 end) as total_cost_basis,
-        -- Preço Médio
+        -- Average price
         sum(case when transaction_type = 'compra' then total_amount else 0 end) / 
         nullif(sum(case when transaction_type = 'compra' then quantity else 0 end), 0) as average_buy_price
     from movements
