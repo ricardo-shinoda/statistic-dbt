@@ -20,7 +20,7 @@ with dados_consolidados as (
                 else 0 
             end
         ), 0) as valor_investido_financeiro
-    from postgres_raw.stock_movements
+    from {{ ref('stg_stock_movements')}}
     where lower(investor) = 'lucas'
     group by 1, 2
 ),
@@ -29,7 +29,7 @@ precos_mercado as (
     select 
         ticker,
         current_price
-    from postgres_raw.current_prices
+    from {{ ref('stg_current_prices')}}
 )
 
 select

@@ -14,5 +14,7 @@ models:
         description: 'Valor bruto da transação'
         tests:
           - dbt_utils.expression_is_true:
-              expression: "amount_brl > -5000"
-              severity: warn
+              arguments:
+                expression: " > -5000" # O dbt vai injetar 'amount_brl' antes do '>'
+              config:
+                severity: warn

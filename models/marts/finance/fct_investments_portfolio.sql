@@ -4,26 +4,15 @@
 
 with fluxo_posicoes as (
     select
-        initcap(lower(m.investor)) as investor,
+        initcap(m.investor) as investor,
         m.ticker,
         
-        coalesce(sum(
-            case 
-                when m.transaction_type = 'Compra' then m.quantity
-                when m.transaction_type = 'Venda' then -m.quantity
-                else 0 
-            end
-        ), 0) as quantidade_cotas_atual,
+        coalesce(sum(m.quantity), 0) as quantidade_cotas_atual,
         
-        coalesce(sum(
-            case 
-                when m.transaction_type = 'Compra' then m.total_amount
-                when m.transaction_type = 'Venda' then -m.total_amount
-                else 0 
-            end
-        ), 0) as saldo_financeiro_cdb
-    from postgres_raw.stock_movements m
-    where lower(m.investor) in ('lucas', 'luísa', 'ricardo', 'casa')
+        coalesce(sum(m.total_amount), 0) as saldo_financeiro_cdb
+        
+    from {{ ref('stg_stock_movements') }} m
+    where m.investor in ('lucas', 'luísa', 'ricardo', 'casa')
       and m.ticker not in ('Dolar', 'Taxa Liquidação', 'Emolumentos', 'IRRS s/ operações')
     group by 1, 2
 ),
@@ -32,7 +21,7 @@ precos_mercado as (
     select 
         ticker,
         current_price
-    from postgres_raw.current_prices
+    from {{ ref('stg_current_prices') }}
 )
 
 select

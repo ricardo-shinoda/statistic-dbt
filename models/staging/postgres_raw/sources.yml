@@ -15,3 +15,5 @@ sources:
         description: "Raw data from stock and investiments transactions" 
       - name: income
         description: "Raw data from income"
+      - name: current_prices
+        description: "Actual prices for stock uptdated with python"

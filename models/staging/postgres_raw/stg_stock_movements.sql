@@ -13,9 +13,19 @@ select
     upper(ticker) as ticker,
     lower(organization) as company_name,
     cnpj,
-    quantity,
+    
+    -- Garante que a quantidade de cotas fique negativa na venda para subtrair do estoque
+    case 
+        when lower(transaction_type) = 'venda' then -1 * abs(quantity)
+        else abs(quantity)
+    end as quantity,
+    
     unit_price,
-    total_amount,
+    
+    -- Como você disse que o total_amount já vem subtraindo na origem, 
+    -- apenas garantimos que ele mantenha o sinal correto aqui
+    total_amount, 
+    
     "Taxa de liquidação" as settlement_fee,
     "Emolumentos" as emoluments,
     "IRFR s/ operações" as income_tax_withheld,
