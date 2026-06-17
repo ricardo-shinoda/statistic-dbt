@@ -14,6 +14,7 @@ with fluxo_posicoes as (
     from {{ ref('stg_stock_movements') }} m
     where m.investor in ('lucas', 'luísa', 'ricardo', 'casa')
       and m.ticker not in ('Dolar', 'Taxa Liquidação', 'Emolumentos', 'IRRS s/ operações')
+      and lower(m.transaction_type) not in ('dividendo', 'juros sobre capital', 'rendimento', 'rendimento (dividendo)', 'provento frações')
     group by 1, 2
 ),
 
