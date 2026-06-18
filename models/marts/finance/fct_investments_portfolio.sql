@@ -12,9 +12,9 @@ with fluxo_posicoes as (
         coalesce(sum(m.total_amount), 0) as saldo_financeiro_cdb
         
     from {{ ref('stg_stock_movements') }} m
-    where m.investor in ('lucas', 'luísa', 'ricardo', 'casa')
-      and m.ticker not in ('Dolar', 'Taxa Liquidação', 'Emolumentos', 'IRRS s/ operações')
-      and lower(m.transaction_type) not in ('dividendo', 'juros sobre capital', 'rendimento', 'rendimento (dividendo)', 'provento frações')
+    where trim(lower(m.investor)) in ('lucas', 'luísa', 'ricardo', 'casa')
+      and trim(lower(m.ticker)) not in ('taxa liquidação', 'emolumentos', 'irrs s/ operações')
+      and trim(lower(m.transaction_type)) not in ('dividendo', 'juros sobre capital', 'rendimento', 'rendimento (dividendo)', 'provento frações', 'calculo ir - venda', 'imposto a pagar')
     group by 1, 2
 ),
 
