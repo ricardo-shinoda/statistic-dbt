@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 with source_data as (
-    select * from {{ source('postgres_raw', 'stock_movements') }}
+    select * from {{ source('postgres_raw', 'investments') }}
 )
 
 select

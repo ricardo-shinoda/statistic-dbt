@@ -20,7 +20,7 @@ with dados_consolidados as (
                 else 0 
             end
         ), 0) as valor_investido_financeiro
-    from {{ ref('stg_stock_movements')}}
+    from {{ ref('stg_investments')}}
     where lower(investor) = 'lucas'
     group by 1, 2
 ),

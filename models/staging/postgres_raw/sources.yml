@@ -11,7 +11,7 @@ sources:
         description: "Raw data from payments made by pix or money transfer"
       - name: nissan_kicks_consumption
         description: "Raw data from car consumption"
-      - name: stock_movements
+      - name: investments
         description: "Raw data from stock and investiments transactions" 
       - name: income
         description: "Raw data from income"

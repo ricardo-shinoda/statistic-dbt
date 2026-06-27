@@ -13,7 +13,7 @@ with base_movements as (
             partition by m.investor, m.ticker 
             order by m.traded_at desc
         ) as rn
-    from {{ ref('stg_stock_movements') }} m
+    from {{ ref('stg_investments') }} m
     where trim(lower(m.investor)) in ('lucas', 'luísa', 'ricardo', 'casa')
       and trim(lower(m.ticker)) not in ('taxa liquidação', 'emolumentos', 'irrs s/ operações')
       and trim(lower(m.transaction_type)) not in ('dividendo', 'juros sobre capital', 'rendimento', 'rendimento (dividendo)', 'provento frações', 'calculo ir - venda', 'imposto a pagar')

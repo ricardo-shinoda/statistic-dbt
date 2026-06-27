@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 with movements as (
-    select * from {{ ref('stg_stock_movements') }}
+    select * from {{ ref('stg_investments') }}
 ),
 
 investment_position as (
