@@ -1,12 +1,9 @@
 {{ config(materialized='table') }}
 
-with staging as (
-    select * from {{ ref('stg_card_payments') }}
-)
-
-select
-    original_category as category,
-    count(*) as total_transactions,
-    sum(amount_brl) as total_acumulated_amount
-from staging
-group by 1
+select distinct
+    md5(concat(coalesce(tipo_gasto, ''), coalesce(grupo, ''), coalesce(categoria, ''), coalesce(subcategoria, ''))) as category_id,
+    tipo_gasto,
+    grupo,
+    categoria as category_name,
+    subcategoria as subcategory_name
+from {{ ref('category_mapping') }}

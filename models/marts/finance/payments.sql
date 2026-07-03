@@ -1,49 +1,33 @@
 {{ config(materialized='table') }}
 
-with card_payments as (
-    select 
-        payment_id, amount_brl, purchased_at, invoice_name,
-        description, comments, original_category, payment_type,
-        is_payment_transaction,
-        false as is_internal_transfer
-    from {{ ref('stg_card_payments') }}
-),
+select 
+    payment_id,
+    amount_brl,
+    purchased_at,
+    payment_type,
+    description,
+    comments,
+    tipo_gasto,
+    grupo,
+    category_name,
+    subcategory_name,
+    is_internal_transfer,
+    is_payment_transaction
+from {{ ref('stg_pix_payments') }}
 
-pix_payments as (
-    select 
-        payment_id, amount_brl, purchased_at, cast(null as text) as invoice_name,
-        description, comments, original_category, payment_type,
-        false as is_payment_transaction,
-        is_internal_transfer
-    from {{ ref('stg_pix_payments') }}
-),
+union all
 
-unioned_payments as (
-    select * from card_payments
-    union all
-    select * from pix_payments
-),
-
-mapping as (
-    select * from {{ ref('category_mapping') }}
-)
-
-select
-    p.*,
-    coalesce(
-        (select m.categoria 
-         from mapping m 
-         where upper(p.description) like '%' || upper(m.original) || '%'
-         limit 1), 
-        p.original_category, 
-        'TBD'
-    ) as category_clean,
-    
-    coalesce(
-        (select m.subcategoria 
-         from mapping m 
-         where upper(p.description) like '%' || upper(m.original) || '%'
-         limit 1), 
-        'General'
-    ) as subcategory_clean
-from unioned_payments p
+select 
+    payment_id,
+    amount_brl,
+    purchased_at,
+    payment_type,
+    description,
+    comments,
+    tipo_gasto,
+    grupo,
+    category_name,
+    subcategory_name,
+    is_internal_transfer,
+    is_payment_transaction
+from {{ ref('stg_card_payments') }}
