@@ -55231,3 +55231,201 @@ drop table if exists "statistic_db"."analytics"."fct_unified_payments__dbt_backu
 [0m09:13:03.295711 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa5a8b5c5f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa59da7be30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa59da7b830>]}
 [0m09:13:03.296203 [debug] [MainThread]: Flushing usage events
 [0m09:13:04.002741 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:11:15.252715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de60d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df41f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df42510>]}
+
+
+============================== 17:11:15.257259 | 3d79b829-387f-4196-b9a0-b67820991f2f ==============================
+[0m17:11:15.257259 [info ] [MainThread]: Running with dbt=1.11.11
+[0m17:11:15.257696 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt seed', 'quiet': 'False', 'warn_error': 'None', 'no_print': 'None', 'log_format': 'default', 'printer_width': '80', 'profiles_dir': '/Users/ricardo/.dbt', 'target_path': 'None', 'use_colors': 'True', 'introspect': 'True', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'log_cache_events': 'False', 'log_path': '/Users/ricardo/study/statistic-dbt/logs', 'cache_selected_only': 'False', 'static_parser': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False'}
+[0m17:11:15.379937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de5d110>]}
+[0m17:11:15.398638 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b143050>]}
+[0m17:11:15.399196 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m17:11:15.449867 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m17:11:15.516438 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 7 files changed.
+[0m17:11:15.516696 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/marts/finance/fct_credit_card_statements.sql
+[0m17:11:15.516818 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/marts/core/dim_categories.sql
+[0m17:11:15.516951 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/staging/postgres_raw/stg_card_payments.sql
+[0m17:11:15.517057 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/staging/postgres_raw/stg_pix_payments.sql
+[0m17:11:15.517161 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/marts/finance/payments.sql
+[0m17:11:15.517261 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://models/marts/finance/fct_unified_payments.sql
+[0m17:11:15.517361 [debug] [MainThread]: Partial parsing: updated file: statistic_dbt://seeds/category_mapping.csv
+[0m17:11:15.704460 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f2f1410>]}
+[0m17:11:15.739420 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m17:11:15.740511 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m17:11:15.746546 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f15a910>]}
+[0m17:11:15.746729 [info ] [MainThread]: Found 16 models, 2 seeds, 3 data tests, 6 sources, 591 macros
+[0m17:11:15.746846 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f478550>]}
+[0m17:11:15.747544 [info ] [MainThread]: 
+[0m17:11:15.747665 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m17:11:15.747758 [info ] [MainThread]: 
+[0m17:11:15.747912 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m17:11:15.749098 [debug] [ThreadPool]: Acquiring new postgres connection 'list_statistic_db'
+[0m17:11:15.780758 [debug] [ThreadPool]: Using postgres connection "list_statistic_db"
+[0m17:11:15.780912 [debug] [ThreadPool]: On list_statistic_db: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m17:11:15.781001 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m17:11:16.226071 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.445 seconds
+[0m17:11:16.228671 [debug] [ThreadPool]: On list_statistic_db: Close
+[0m17:11:16.232184 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_statistic_db, now list_statistic_db_analytics)
+[0m17:11:16.240671 [debug] [ThreadPool]: Using postgres connection "list_statistic_db_analytics"
+[0m17:11:16.241198 [debug] [ThreadPool]: On list_statistic_db_analytics: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "list_statistic_db_analytics"} */
+select
+      'statistic_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'analytics'
+    union all
+    select
+      'statistic_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'analytics'
+  
+[0m17:11:16.241485 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m17:11:16.261764 [debug] [ThreadPool]: SQL status: SELECT 18 in 0.020 seconds
+[0m17:11:16.263359 [debug] [ThreadPool]: On list_statistic_db_analytics: ROLLBACK
+[0m17:11:16.264018 [debug] [ThreadPool]: On list_statistic_db_analytics: Close
+[0m17:11:16.270853 [debug] [MainThread]: Using postgres connection "master"
+[0m17:11:16.271291 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "statistic_dbt", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m17:11:16.271579 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m17:11:16.292748 [debug] [MainThread]: SQL status: SELECT 6 in 0.021 seconds
+[0m17:11:16.293937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f475990>]}
+[0m17:11:16.294313 [debug] [MainThread]: On master: ROLLBACK
+[0m17:11:16.294968 [debug] [MainThread]: On master: COMMIT
+[0m17:11:16.295194 [debug] [MainThread]: Using postgres connection "master"
+[0m17:11:16.295413 [debug] [MainThread]: On master: COMMIT
+[0m17:11:16.296144 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m17:11:16.296379 [debug] [MainThread]: On master: Close
+[0m17:11:16.298832 [debug] [Thread-1 (]: Began running node seed.statistic_dbt.category_mapping
+[0m17:11:16.299212 [info ] [Thread-1 (]: 1 of 2 START seed file analytics.category_mapping .............................. [RUN]
+[0m17:11:16.299544 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_statistic_db_analytics, now seed.statistic_dbt.category_mapping)
+[0m17:11:16.299771 [debug] [Thread-1 (]: Began compiling node seed.statistic_dbt.category_mapping
+[0m17:11:16.299996 [debug] [Thread-1 (]: Began executing node seed.statistic_dbt.category_mapping
+[0m17:11:16.319059 [debug] [Thread-1 (]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m17:11:16.319330 [debug] [Thread-1 (]: On seed.statistic_dbt.category_mapping: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "seed.statistic_dbt.category_mapping"} */
+truncate table "statistic_db"."analytics"."category_mapping"
+[0m17:11:16.319499 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:11:16.340705 [debug] [Thread-1 (]: SQL status: TRUNCATE TABLE in 0.021 seconds
+[0m17:11:16.351705 [debug] [Thread-1 (]: Using postgres connection "seed.statistic_dbt.category_mapping"
+[0m17:11:16.351924 [debug] [Thread-1 (]: On seed.statistic_dbt.category_mapping: 
+          insert into "statistic_db"."analytics"."category_mapping" ("search_term", "tipo_gasto", "grupo", "categoria", "subcategoria") values
+          (%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s),(%s,%s,%s,%s,%s)
+      ...
+[0m17:11:16.354113 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column "search_term" of relation "category_mapping" does not exist
+LINE 2: ...to "statistic_db"."analytics"."category_mapping" ("search_te...
+                                                             ^
+
+[0m17:11:16.354326 [debug] [Thread-1 (]: On seed.statistic_dbt.category_mapping: ROLLBACK
+[0m17:11:16.354737 [debug] [Thread-1 (]: On seed.statistic_dbt.category_mapping: Close
+[0m17:11:16.363781 [debug] [Thread-1 (]: Database Error in seed category_mapping (seeds/category_mapping.csv)
+  column "search_term" of relation "category_mapping" does not exist
+  LINE 2: ...to "statistic_db"."analytics"."category_mapping" ("search_te...
+                                                               ^
+[0m17:11:16.365078 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f8b53d0>]}
+[0m17:11:16.365421 [error] [Thread-1 (]: 1 of 2 ERROR loading seed file analytics.category_mapping ...................... [[31mERROR[0m in 0.06s]
+[0m17:11:16.365765 [debug] [Thread-1 (]: Finished running node seed.statistic_dbt.category_mapping
+[0m17:11:16.366006 [debug] [Thread-1 (]: Began running node seed.statistic_dbt.keyword_mapping
+[0m17:11:16.366240 [debug] [Thread-4 (]: Marking all children of 'seed.statistic_dbt.category_mapping' to be skipped because of status 'error'.  Reason: Database Error in seed category_mapping (seeds/category_mapping.csv)
+  column "search_term" of relation "category_mapping" does not exist
+  LINE 2: ...to "statistic_db"."analytics"."category_mapping" ("search_te...
+                                                               ^.
+[0m17:11:16.366504 [info ] [Thread-1 (]: 2 of 2 START seed file analytics.keyword_mapping ............................... [RUN]
+[0m17:11:16.367090 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly seed.statistic_dbt.category_mapping, now seed.statistic_dbt.keyword_mapping)
+[0m17:11:16.367252 [debug] [Thread-1 (]: Began compiling node seed.statistic_dbt.keyword_mapping
+[0m17:11:16.367391 [debug] [Thread-1 (]: Began executing node seed.statistic_dbt.keyword_mapping
+[0m17:11:16.371498 [debug] [Thread-1 (]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m17:11:16.371909 [debug] [Thread-1 (]: On seed.statistic_dbt.keyword_mapping: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "statistic_dbt", "target_name": "dev", "node_id": "seed.statistic_dbt.keyword_mapping"} */
+truncate table "statistic_db"."analytics"."keyword_mapping"
+[0m17:11:16.372265 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m17:11:16.383695 [debug] [Thread-1 (]: SQL status: TRUNCATE TABLE in 0.011 seconds
+[0m17:11:16.386366 [debug] [Thread-1 (]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m17:11:16.386539 [debug] [Thread-1 (]: On seed.statistic_dbt.keyword_mapping: 
+          insert into "statistic_db"."analytics"."keyword_mapping" ("search_keyword", "category", "sub_category", "is_essential") values
+          (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+      ...
+[0m17:11:16.387767 [debug] [Thread-1 (]: SQL status: INSERT 0 8 in 0.001 seconds
+[0m17:11:16.389893 [debug] [Thread-1 (]: Writing runtime SQL for node "seed.statistic_dbt.keyword_mapping"
+[0m17:11:16.397324 [debug] [Thread-1 (]: On seed.statistic_dbt.keyword_mapping: COMMIT
+[0m17:11:16.397535 [debug] [Thread-1 (]: Using postgres connection "seed.statistic_dbt.keyword_mapping"
+[0m17:11:16.397662 [debug] [Thread-1 (]: On seed.statistic_dbt.keyword_mapping: COMMIT
+[0m17:11:16.401285 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m17:11:16.402040 [debug] [Thread-1 (]: On seed.statistic_dbt.keyword_mapping: Close
+[0m17:11:16.402290 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3d79b829-387f-4196-b9a0-b67820991f2f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10f9981d0>]}
+[0m17:11:16.402489 [info ] [Thread-1 (]: 2 of 2 OK loaded seed file analytics.keyword_mapping ........................... [[32mINSERT 8[0m in 0.04s]
+[0m17:11:16.402684 [debug] [Thread-1 (]: Finished running node seed.statistic_dbt.keyword_mapping
+[0m17:11:16.403255 [debug] [MainThread]: On master: COMMIT
+[0m17:11:16.403389 [debug] [MainThread]: Using postgres connection "master"
+[0m17:11:16.403492 [debug] [MainThread]: On master: COMMIT
+[0m17:11:16.403610 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m17:11:16.411923 [debug] [MainThread]: SQL status: COMMIT in 0.008 seconds
+[0m17:11:16.412104 [debug] [MainThread]: On master: Close
+[0m17:11:16.412264 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m17:11:16.412360 [debug] [MainThread]: Connection 'seed.statistic_dbt.keyword_mapping' was properly closed.
+[0m17:11:16.412480 [info ] [MainThread]: 
+[0m17:11:16.412594 [info ] [MainThread]: Finished running 2 seeds in 0 hours 0 minutes and 0.66 seconds (0.66s).
+[0m17:11:16.412879 [debug] [MainThread]: Command end result
+[0m17:11:16.429147 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/ricardo/study/statistic-dbt/target/manifest.json
+[0m17:11:16.430066 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/ricardo/study/statistic-dbt/target/semantic_manifest.json
+[0m17:11:16.432346 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/ricardo/study/statistic-dbt/target/run_results.json
+[0m17:11:16.432484 [info ] [MainThread]: 
+[0m17:11:16.432628 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m17:11:16.432733 [info ] [MainThread]: 
+[0m17:11:16.432872 [error] [MainThread]: [31mFailure in seed category_mapping (seeds/category_mapping.csv)[0m
+[0m17:11:16.432989 [error] [MainThread]:   Database Error in seed category_mapping (seeds/category_mapping.csv)
+  column "search_term" of relation "category_mapping" does not exist
+  LINE 2: ...to "statistic_db"."analytics"."category_mapping" ("search_te...
+                                                               ^
+[0m17:11:16.433080 [info ] [MainThread]: 
+[0m17:11:16.433177 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=2
+[0m17:11:16.439784 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 1.8713553, "process_in_blocks": "0", "process_kernel_time": 0.246726, "process_mem_max_rss": "156549120", "process_out_blocks": "0", "process_user_time": 0.987151}
+[0m17:11:16.440019 [debug] [MainThread]: Command `dbt seed` failed at 17:11:16.439983 after 1.87 seconds
+[0m17:11:16.440176 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dda27d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ba25d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109ba2710>]}
+[0m17:11:16.440309 [debug] [MainThread]: Flushing usage events
+[0m17:11:17.043979 [debug] [MainThread]: An error was encountered while trying to flush usage events
