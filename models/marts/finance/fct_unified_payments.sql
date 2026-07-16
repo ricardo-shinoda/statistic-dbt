@@ -1,10 +1,5 @@
 {{ config(materialized='table') }}
 
-
-with consolidated_payments as (
-    select * from {{ ref('payments') }}
-)
-
 select
     payment_id,
     amount_brl,
@@ -13,7 +8,7 @@ select
     description,
     comments,
     
-    -- Nova hierarquia rica vinda da sua semente unificada
+    -- Garante o fallback caso as 1700 regras não cubram o estabelecimento
     coalesce(tipo_gasto, 'Variável') as tipo_gasto,
     coalesce(grupo, 'Outros') as grupo,
     coalesce(category_name, 'Não Classificado') as category_name,
@@ -21,5 +16,5 @@ select
     
     is_internal_transfer,
     is_payment_transaction
-from {{ ref('payments') }}
-where not is_internal_transfer -- Filtrando transferências se quiser focar apenas em gastos`
+from {{ ref('int_payments_mapped') }} -- <--- Referência atualizada aqui!
+where not is_internal_transfer

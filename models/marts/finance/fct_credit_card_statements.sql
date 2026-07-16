@@ -1,31 +1,39 @@
 {{ config(materialized='table') }}
 
 with raw_statements as (
-    select * from {{ ref('stg_card_payments') }}
-    -- Filtrando apenas o que faz sentido para o report de statements, se necessário
-    -- (Nota: na stg_card_payments setamos is_payment_transaction = true por padrão, 
-    -- mude aqui para true ou remova o filtro se quiser ver todos os gastos mapeados)
+    select 
+        payment_id,
+        purchased_at,
+        description,
+        amount_brl,
+        payment_type,
+        is_payment_transaction
+    from {{ ref('stg_card_payments') }}
     where is_payment_transaction = true
 ),
 
 categories_mapping as (
-    select * from {{ ref('keyword_mapping') }}
+    -- Puxando a sua semente unificada de 1700+ linhas
+    select * from {{ ref('category_mapping') }}
 ),
 
 refined as (
     select 
-        t.*,
-        c.category as matched_category,
-        c.sub_category as matched_sub_category,
-        c.is_essential as matched_is_essential,
-        -- Se veio como 'Não Classificado' do seed principal, consideramos genérico para tentar remapear via keyword
-        case 
-            when t.category_name = 'Não Classificado' then true
-            else false
-        end as is_original_generic
-    from raw_statements t
-    left join categories_mapping c 
-        on t.description ilike '%' || c.search_keyword || '%'
+        s.payment_id,
+        s.purchased_at,
+        s.description,
+        s.amount_brl,
+        s.payment_type,
+        
+        -- Trazendo a classificação baseada no match do termo de busca
+        m.tipo_gasto,
+        m.grupo,
+        m.categoria as matched_category,
+        m.subcategoria as matched_sub_category
+    from raw_statements s
+    left join categories_mapping m 
+        -- Mantendo o comportamento padrão que você definiu: busca apenas na descrição
+        on lower(s.description) like '%' || lower(m.search_term) || '%'
 )
 
 select
@@ -35,23 +43,15 @@ select
     amount_brl,
     payment_type,
     
-    -- Hierarquia inteligente de fallback
-    tipo_gasto,
-    grupo,
-    
-    case 
-        when is_original_generic = true and matched_category is not null then matched_category
-        else category_name
-    end as final_category,
+    -- Tratamento de fallbacks caso o estabelecimento do cartão não esteja nas 1700 linhas
+    coalesce(tipo_gasto, 'Variável') as tipo_gasto,
+    coalesce(grupo, 'Outros') as grupo,
+    coalesce(matched_category, 'Não Classificado') as final_category,
+    coalesce(matched_sub_category, 'Não Classificado') as final_sub_category,
 
-    case 
-        when is_original_generic = true and matched_sub_category is not null then matched_sub_category
-        else subcategory_name
-    end as final_sub_category,
-
+    -- Lógica simplificada para a flag booleana de essencial
     case 
         when tipo_gasto = 'Essencial' then true
-        when tipo_gasto = 'Variável' then false
-        else coalesce(matched_is_essential, false)
+        else false
     end as is_essential
 from refined
