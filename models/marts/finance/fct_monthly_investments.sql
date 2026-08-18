@@ -3,7 +3,6 @@
 ) }}
 
 with recursive indexed_transactions as (
-    -- 1. Ordena cronologicamente por ATIVO e por INVESTOR
     select
         row_number() over (partition by ticker, investor order by traded_at asc) as transaction_index,
         traded_at::date as traded_date,
@@ -16,12 +15,10 @@ with recursive indexed_transactions as (
         end as quantity,
         unit_price
     from {{ ref('stg_investments') }}
-    -- REGRA DE NEGÓCIO: A única coisa que fica de fora é o fluxo do caixa diário
     where ticker != 'CDB_Caixa_102.0'
 ),
 
 trade_history_recursive as (
-    -- 2. CTE Recursiva para calcular Preço Médio por Ativo e Investidor
     select
         transaction_index,
         traded_date,
@@ -42,12 +39,10 @@ trade_history_recursive as (
         t.ticker,
         t.investor,
         t.transaction_type,
-        -- Regra de Quantidade Acumulada
         case 
             when lower(t.transaction_type) = 'saldo' then t.quantity
             else (r.qtd_acumulada + t.quantity)
         end as qtd_acumulada,
-        -- Regra de Preço Médio
         case
             when lower(t.transaction_type) = 'saldo' then t.unit_price
             when (r.qtd_acumulada + t.quantity) <= 0 then 0
@@ -55,7 +50,6 @@ trade_history_recursive as (
                 ((r.qtd_acumulada * r.preco_medio) + (t.quantity * t.unit_price)) / (r.qtd_acumulada + t.quantity)
             else r.preco_medio
         end as preco_medio,
-        -- Regra de Custo Aplicado / Valor de Face
         case
             when lower(t.transaction_type) = 'saldo' then (t.quantity * t.unit_price)
             when (r.qtd_acumulada + t.quantity) <= 0 then 0
@@ -102,7 +96,6 @@ timeline_matrix as (
 ),
 
 filled_portfolio as (
-    -- 5. Propaga os saldos do investidor ao longo do tempo (evita buracos nos meses)
     select
         matrix.data_mes,
         matrix.ticker,
@@ -125,7 +118,6 @@ latest_market_prices as (
 ),
 
 metrics_per_month as (
-    -- 6. Valora o estoque de cada ativo para cada investidor
     select
         f.data_mes,
         f.investor,
@@ -141,12 +133,10 @@ metrics_per_month as (
     where f.qtd_no_mes > 0 or f.custo_no_mes > 0
 )
 
--- 7. Consolidação final agrupada por Mês e por Investor
--- 7. Consolidação final mantendo a granularidade do ATIVO
 select
     data_mes,
     investor,
-    ticker,  -- <--- Mantém o ticker aqui para podermos filtrar no Metabase
+    ticker,
     sum(valor_aplicado) as total_aplicado,
     sum(valor_mercado) as total_atual,
     sum(valor_mercado) - sum(valor_aplicado) as ganho_de_capital

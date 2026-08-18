@@ -1,112 +1,108 @@
-# Statistic dbt Project
+# Financial Data Transformation Pipeline (dbt)
 
-This repository contains the Analytics Engineering layer for the personal finance and statistics data pipeline. Using **dbt (Data Build Tool)** and **PostgreSQL**, it transforms raw data extracted from credit card PDFs, bank statements, investments, and vehicle logs into clean, modeled dimensional tables and analytical facts.
+This repository contains the **dbt (data build tool)** project designed to transform, clean, and model raw personal finance and investment data stored in a PostgreSQL database into analytical-ready schemas.
 
----
+By leveraging dbt's modular development practices, this project structures raw transaction inputs, vehicle consumption metrics, and stock portfolio details into distinct dimensional (`dim_`) and fact (`fct_`) tables.
 
-## 🏗️ Project Architecture & Directory Structure
+## 🚀 Key Features
 
-Following modern analytics engineering workflows, all files are located at the root of the project for a seamless terminal experience (as seen in `image_de2aab.png`):
+* **Multi-Layer Architecture:** Strictly follows dbt best practices separating **Staging** (cleaning and renaming), **Intermediate** (mid-level processing), and **Marts** (business-ready facts and dimensions).
+* **Data Enrichment (Seeds):** Integrates seed files (like transaction category mappings) directly into the transformation DAG.
+* **Consolidated Financial Marts:** Builds unified models for credit card transactions, investment portfolio valuations, and overall cash flows (Pix, credit card, and income).
+* **Automated Documentation & Testing:** Uses schema configuration files (`schema.yml` and `sources.yml`) to enforce data quality constraints and document model dependencies.
+
+## 📁 Repository Structure
 
 ```text
 STATISTIC-DBT/
-├── macros/                  # Reusable SQL macro functions
-├── models/
-│   ├── staging/             # Raw data cleaning & type casting
-│   │   └── postgres_raw/    # Sources definitions & initial views
-│   └── marts/               # Analytical models (Business Layer)
-│       ├── core/            # Universal dimensions (e.g., categories)
-│       ├── finance/         # Unified cash flow & statements data
-│       ├── investments/     # Portfolio & asset tracking facts
-│       └── vehicle/         # Log analysis & consumption metrics
-├── seeds/                   # Static mappings (CSV files)
-├── tests/                   # Generic & data quality tests
-├── dbt_project.yml          # Core dbt configuration file
-├── requirements.txt         # Python dependencies (dbt-core, dbt-postgres)
-└── README.md                # Project documentation
-``` 
+├── analyses/                  # One-off analytical SQL queries
+├── dbt_packages/              # Installed external dbt packages
+├── macros/                    # Reusable SQL helper functions and macros
+├── models/                    
+│   ├── staging/               # Layer 1: Raw data cleaning, casting, and renaming
+│   │   └── postgres_raw/
+│   │       ├── sources.yml    # Database source definitions
+│   │       ├── schema.yml     # Staging-level tests and documentation
+│   │       ├── stg_card_payments.sql
+│   │       ├── stg_current_prices.sql
+│   │       ├── stg_income.sql
+│   │       ├── stg_investments.sql
+│   │       ├── stg_pix_payments.sql
+│   │       └── stg_vehicle_consumption.sql
+│   └── marts/                 # Layer 2 & 3: Business-ready analytical tables
+│       ├── core/
+│       │   └── dim_categories.sql
+│       ├── finance/           # Personal expense & payment tracking
+│       │   ├── intermediate/  # Internal transformation models
+│       │   ├── fct_credit_card_statements.sql
+│       │   ├── fct_investments_dividends.sql
+│       │   ├── fct_investments_portfolio.sql
+│       │   ├── fct_lucas_investments.sql
+│       │   ├── fct_monthly_investments.sql
+│       │   └── fct_unified_payments.sql
+│       ├── investments/       # Specialized portfolio tracking
+│       │   └── fct_investments.sql
+│       └── vehicle/           # Car expenses and mileage tracking
+│           └── fct_vehicle_consumption.sql
+├── seeds/                     # Static CSV maps (e.g., category_mapping.csv)
+├── snapshots/                 # Slow-changing dimension (SCD) setups
+├── dbt_project.yml            # Main dbt configuration file
+├── profiles.yml               # Local connection profiles (Excluded from Git)
+└── requirements.txt           # Python dbt dependencies
+```
 
-📊 Data Pipeline Flow
+## ⚙️ Getting Started
 
-    Extraction (Upstream): Raw data is loaded into the PostgreSQL container via custom Python/Pandas scripts.
+### Prerequisites
 
-    Staging Layer (models/staging/):
+* Python 3.10+ installed.
+* Access to the PostgreSQL database containing the raw ingested data.
 
-        Maps raw data from postgres_raw.sources.yml.
+### Connection Profiles (`profiles.yml`)
 
-        Cleans field names, fixes timestamps, and enforces correct data types (stg_card_payments, stg_income, stg_pix_payments, etc.).
+Make sure your dbt profile is correctly set up. Typically located in `~/.dbt/profiles.yml` (or customized in your project root using `--profiles-dir`), it should point to your PostgreSQL database:
 
-    Seeds (seeds/): Enriches raw data with manual mappings such as category_mapping.csv and keyword_mapping.csv.
+```yaml
+# Local Developer Configuration (profiles.yml Template)
+statistic:
+  outputs:
+    dev:
+      type: postgres
+      threads: 4
+      host: localhost
+      port: 5432
+      user: YOUR_DB_USER
+      password: YOUR_DB_PASSWORD
+      dbname: YOUR_DB_NAME
+      schema: dev # Target schema where dbt will write models
+  target: dev
+```
 
-    Marts Layer (models/marts/):
+### Quick Setup & Commands
 
-        Core: Builds dimensional contexts like dim_categories.
+Run the following block of commands in your terminal to set up your virtual environment, install dependencies, load seed data, and execute the transformations:
 
-        Finance: Aggregates facts like fct_credit_card_statements and outputs a consolidated financial view in fct_unified_payments.
+```bash
+# 1. Setup Python Virtual Environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 
-        Vehicle & Investments: Tracks consumption profiles and portfolio performance over time.
-
-🚀 Getting Started (Local Development)
-1. Environment Setup
-
-Ensure your local Python virtual environment is active and all dependencies are installed:
-Bash
-
-# Activate the virtual environment
-source .venv/bin/activate
-
-# Install core packages
+# 2. Install dbt-postgres and dependencies
 pip install -r requirements.txt
 
-2. Infrastructure (Database Container)
+# 3. Pull dbt packages (if any are declared in packages.yml)
+dbt deps
 
-This project relies on a PostgreSQL instance running inside a Docker container (statistic_db). Ensure the container is active before running dbt:
-Bash
+# 4. Load static CSV seeds (like category mapping) to the database
+dbt seed
 
-# Check container status
-docker ps -a
-
-# Start the database container if stopped
-docker start statistic_db
-
-3. Verify Connection
-
-To ensure your local configuration file (~/.dbt/profiles.yml) is correctly configured and reaching the database:
-Bash
-
-dbt debug
-
-🛠️ Execution & Deployment Commands
-
-Run these core commands inside your activated terminal to execute the transformation pipeline:
-
-Load Reference Seeds: Inserts static CSV mapping files into the database.
-
-```Bash
-  dbt seed
-``` 
-Run Transformations: Compiles and runs all Staging views and Mart tables.
-
-```Bash
-  dbt run
+# 5. Run and Test the pipeline models
+dbt build
 ```
-Execute Combined Pipeline (Recommended): Sequential execution of seeds followed by models.
 
-```Bash
-  dbt seed && dbt run
-``
-Run Data Quality Tests: Validates constraints and unique/null expressions.
+## 📊 Analytical Pipeline Lineage (Logical Flow)
 
-```Bash
-  dbt test
-``
-
-💻 Cross-Platform Notes (Debian / macOS)
-
-    Profiles Location: The profiles.yml file containing database credentials must reside in your local user directory:
-
-        Linux (Debian): /home/<username>/.dbt/profiles.yml
-
-        macOS: /Users/<username>/.dbt/profiles.yml
-
-    VS Code Productivity Shortcut: To instantly preview compiled SQL scripts or test queries, use the universal shortcut: Ctrl + Enter (or mapped Cmd + Enter on macOS architecture).
+1. **Sources (`postgres_raw`):** Raw tables populated by the Python ingestion pipeline.
+2. **Staging:** Standardization of timestamps, string schemas, and numerical columns.
+3. **Seeds:** `category_mapping.csv` is mapped against staging payment streams to build `dim_categories`.
+4. **Marts:** Models under `marts/` combine investments, credit card details, income, and vehicle costs to produce clean fact models like `fct_unified_payments` and portfolio health metrics.

@@ -36,7 +36,7 @@ select
     d.investor,
     d.ticker,
     case 
-        when d.ticker = 'CDB' then 1 -- Para CDB, fixamos a cota em 1 unidade de carteira
+        when d.ticker = 'CDB' then 1
         else d.quantidade_cotas 
     end as quantidade_cotas,
     case 

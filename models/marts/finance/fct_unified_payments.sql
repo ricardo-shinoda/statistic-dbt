@@ -8,7 +8,6 @@ select
     description,
     comments,
     
-    -- Garante o fallback caso as 1700 regras não cubram o estabelecimento
     coalesce(tipo_gasto, 'Variável') as tipo_gasto,
     coalesce(grupo, 'Outros') as grupo,
     coalesce(category_name, 'Não Classificado') as category_name,
@@ -16,5 +15,5 @@ select
     
     is_internal_transfer,
     is_payment_transaction
-from {{ ref('int_payments_mapped') }} -- <--- Referência atualizada aqui!
+from {{ ref('int_payments_mapped') }}
 where not is_internal_transfer

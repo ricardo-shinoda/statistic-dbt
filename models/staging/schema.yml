@@ -15,6 +15,6 @@ models:
         tests:
           - dbt_utils.expression_is_true:
               arguments:
-                expression: " > -5000" # O dbt vai injetar 'amount_brl' antes do '>'
+                expression: " > -5000"
               config:
                 severity: warn
