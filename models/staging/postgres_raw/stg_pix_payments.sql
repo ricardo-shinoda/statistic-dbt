@@ -27,7 +27,7 @@ mapped as (
         case 
             when lower(s.descricao) ilike '%fatura%' then true
             when lower(s.descricao) ilike '%c6 bank%' then true
-            when upper(s.categoria) = 'PAGAMENTOS' and upper(s.subcategoria) = 'CARTÃO DE CRÉDITO' then true
+            when upper(m.categoria) = 'PAGAMENTOS' and upper(m.subcategoria) = 'CARTÃO DE CRÉDITO' then true
             else false
         end as is_internal_transfer
 
