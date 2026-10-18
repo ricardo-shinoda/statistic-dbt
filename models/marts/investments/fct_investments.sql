@@ -6,22 +6,27 @@ with movements as (
 
 investment_position as (
     select
+        investor,
         ticker,
-        company_name,
+        max(company_name) as company_name,
+        
+        -- Soma da quantidade líquida
         sum(case when transaction_type = 'compra' then quantity else -quantity end) as current_quantity,
-        sum(case when transaction_type = 'compra' then total_amount else 0 end) as total_cost_basis,
-        -- Average price
-        sum(case when transaction_type = 'compra' then total_amount else 0 end) / 
-        nullif(sum(case when transaction_type = 'compra' then quantity else 0 end), 0) as average_buy_price
+        
+        -- Se total_amount na planilha já vem com o sinal (- ou +):
+        sum(total_amount) as total_invested_brl
+        
     from movements
-    group by 1, 2
+    group by investor, ticker
 )
 
 select 
+    investor,
     ticker,
     company_name,
     current_quantity,
-    average_buy_price,
-    total_cost_basis as total_invested_brl
+    total_invested_brl,
+    -- Preço médio calculado após consolidar o ativo
+    total_invested_brl / nullif(current_quantity, 0) as average_buy_price
 from investment_position
 where current_quantity > 0
