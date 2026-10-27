@@ -31,33 +31,20 @@ categorized as (
     select
         c.*,
         
-        -- 1. TIPO DE GASTO (Essencial ou Variável)
-        case 
-            when description ilike '%pix de alguém importante%' -- substitua por regras se necessário
-              or description ilike '%aluguel%' 
-              or description ilike '%condominio%' 
-              or description ilike '%energia%' 
-              or description ilike '%agua%' then 'essencial'
-            else 'variável'
-        end as tipo_gasto,
+        -- 1. TIPO DE GASTO (Prioriza o Excel, usa fallback se vazio)
+        coalesce(nullif(trim(s.tipo_gasto), ''), 'variável') as tipo_gasto,
 
-        -- 2. CATEGORIA PRINCIPAL (category_name)
-        case
-            when description ilike '%pix de alguém importante%' then 'Transferências'
-            when description ilike '%mercado%' or description ilike '%confianca%' then 'Alimentação'
-            else 'Não Classificado'
-        end as category_name,
+        -- 2. CATEGORIA PRINCIPAL (Prioriza o Excel)
+        coalesce(nullif(trim(s.category_name), ''), 'Não Classificado') as category_name,
 
-        -- 3. SUBCATEGORIA 1 (subcategory_name1)
-        case
-            when description ilike '%mercado%' then 'Mercado'
-            else 'Não Especificado'
-        end as subcategory_name1,
+        -- 3. SUBCATEGORIA 1 (Prioriza o Excel)
+        coalesce(nullif(trim(s.subcategory_name1), ''), 'Não Especificado') as subcategory_name1,
 
-        -- 4. SUBCATEGORIA 2 (subcategory_name2)
-        'Não Especificado' as subcategory_name2
+        -- 4. SUBCATEGORIA 2 (Prioriza o Excel)
+        coalesce(nullif(trim(s.subcategory_name2), ''), 'Não Especificado') as subcategory_name2
 
     from cleaned c
+    left join source_data s on c.payment_id = md5(cast(s.data_compra as varchar) || s.descricao || cast(s.valor as varchar) || s.arquivo_origem)
 )
 
 select
