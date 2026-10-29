@@ -1,32 +1,17 @@
-{{ config(materialized='table') }}
-
-with movements as (
+with investments as (
     select * from {{ ref('stg_investments') }}
 ),
 
-investment_position as (
-    select
-        investor,
-        ticker,
-        max(company_name) as company_name,
-        
-        -- Soma da quantidade líquida
-        sum(case when transaction_type = 'compra' then quantity else -quantity end) as current_quantity,
-        
-        -- Se total_amount na planilha já vem com o sinal (- ou +):
-        sum(total_amount) as total_invested_brl
-        
-    from movements
-    group by investor, ticker
+current_prices as (
+    select * from {{ ref('stg_current_prices') }}
 )
 
-select 
-    investor,
-    ticker,
-    company_name,
-    current_quantity,
-    total_invested_brl,
-    -- Preço médio calculado após consolidar o ativo
-    total_invested_brl / nullif(current_quantity, 0) as average_buy_price
-from investment_position
-where current_quantity > 0
+select
+    i.*,
+    p.current_price as market_price,
+    -- Se a coluna de total investido se chamar total_amount na sua base, calculamos ou usamos o campo correto:
+    coalesce(i.quantity * i.unit_price, 0) as total_invested_brl,
+    -- Cálculo do Valor Atual de Mercado (Mark-to-Market)
+    coalesce(i.quantity * p.current_price, coalesce(i.quantity * i.unit_price, 0)) as current_market_value_brl
+from investments i
+left join current_prices p on i.ticker = p.ticker
