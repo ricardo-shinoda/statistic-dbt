@@ -56,29 +56,28 @@ categorized as (
               or cleaned_description ilike '%restaurante%' 
               or cleaned_description ilike '%bobs%' 
               or cleaned_description ilike '%burger%' 
-              or cleaned_description ilike '%padaria%' then 'Alimentação'
-              
-            when cleaned_description ilike '%mercado%' 
+              or cleaned_description ilike '%padaria%'
+              or cleaned_description ilike '%mercado%'
               or cleaned_description ilike '%confianca%' 
               or cleaned_description ilike '%sams%' 
               or cleaned_description ilike '%tauste%'
-              or cleaned_description ilike '%carrefour%' then 'Alimentação'
+              or cleaned_description ilike '%carrefour%' then 'alimentação'
               
             when cleaned_description ilike '%uber%' 
               or cleaned_description ilike '%99app%' 
               or cleaned_description ilike '%posto%' 
               or cleaned_description ilike '%ipiranga%' 
-              or cleaned_description ilike '%shell%' then 'Transporte'
+              or cleaned_description ilike '%shell%' then 'transporte'
               
             when cleaned_description ilike '%drogasil%' 
               or cleaned_description ilike '%drogal%' 
               or cleaned_description ilike '%farmacia%' 
-              or cleaned_description ilike '%unimed%' then 'Saúde'
+              or cleaned_description ilike '%unimed%' then 'saúde'
               
             when cleaned_description ilike '%amazon%' 
               or cleaned_description ilike '%netflix%' 
               or cleaned_description ilike '%spotify%' 
-              or cleaned_description ilike '%prime%' then 'Lazer / Bem Estar'
+              or cleaned_description ilike '%prime%' then 'lazer / bem estar'
               
             else 'Não Classificado'
         end as category_name,

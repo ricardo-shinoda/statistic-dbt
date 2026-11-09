@@ -9,7 +9,10 @@ select
     
     lower(investor) as investor,
     lower(transaction_type) as transaction_type,
+    income, -- Nova coluna para indicar Renda Fixa / Variável
     cast(transaction_date as date) as traded_at,
+    -- Geramos o mês dinamicamente a partir da data de transação
+    date_trunc('month', cast(transaction_date as date)) as report_month,
     upper(ticker) as ticker,
     lower(organization) as company_name,
     cnpj,
@@ -26,7 +29,6 @@ select
     "Taxa de liquidação" as settlement_fee,
     "Emolumentos" as emoluments,
     "IRFR s/ operações" as income_tax_withheld,
-    "month" as report_month,
     "To invest" as target_invest_amount,
     "Difference" as price_difference,
     
