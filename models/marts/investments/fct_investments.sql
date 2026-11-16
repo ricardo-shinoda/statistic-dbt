@@ -3,7 +3,13 @@ with investments as (
 ),
 
 current_prices as (
-    select * from {{ ref('stg_current_prices') }}
+    select
+        case 
+            when upper(trim(ticker)) in ('DOLAR', 'DÓLAR', 'USD', 'USDBRL=X') then 'USDBRL=X'
+            else upper(trim(ticker))
+        end as ticker,
+        current_price
+    from {{ ref('stg_current_prices') }}
 ),
 
 -- 1. Normaliza tickers e padroniza transações

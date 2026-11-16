@@ -18,6 +18,12 @@ with provents_history as (
           or lower(m.transaction_type) like '%juros sobre capital%'
           or lower(m.transaction_type) like '%provento%'
       )
+      -- Exclui apenas títulos de Renda Fixa, mantendo Ações, FIIs e Fiagros (ex: SNAG11)
+      and upper(m.ticker) not like '%CDB%'
+      and upper(m.ticker) not like '%LCI%'
+      and upper(m.ticker) not like '%LCA%'
+      and upper(m.ticker) not like '%TESOURO%'
+      and upper(m.ticker) not like '%RESERVA%'
 )
 
 select
