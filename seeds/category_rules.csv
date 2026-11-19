@@ -1,0 +1,22 @@
+pattern,tipo_gasto,category_name,subcategory_name1
+BLUE TREE,variável,Lazer / Bem Estar,Viagem / Hotel
+TAYAYA,variável,Lazer / Bem Estar,Viagem / Hotel
+RDSAUDE,essencial,Saúde,Medicamento
+OTICA IMAGEM,essencial,Saúde,Ótica
+BIOLAB,essencial,Saúde,Exames / Lab
+AMERICAN CORNER,essencial,Educação,Idiomas / Escola
+INTELECTO AULAS,essencial,Educação,Aulas / Reforço
+WELLHUB,variável,Lazer / Bem Estar,Academia / Bem-estar
+GYMPASS,variável,Lazer / Bem Estar,Academia / Bem-estar
+TOTALPASS,variável,Lazer / Bem Estar,Academia / Bem-estar
+SIGMA ESCOLA DANCA,variável,Lazer / Bem Estar,Esportes / Dança
+ALLIANCE JIU JITSU,variável,Lazer / Bem Estar,Esportes / Artes Marciais
+BUFFETPIPOCA,variável,Lazer / Bem Estar,Festas / Eventos
+TENDA ATACADO,essencial,Alimentação,Mercado
+CONTA VIVO,essencial,Moradia,Internet / Telefone
+PROESTE PRUDENTE,essencial,Transporte,Manutenção Veículo
+SVAUTOMECANICA,essencial,Transporte,Manutenção Veículo
+PORTO SEGURO,essencial,Transporte,Seguro Auto
+ALIPAY MAGAZI,variável,Compras / Varejo,Varejo / Marketplace
+Anuidade Diferenciada,essencial,Contabilidade,Tarifas Bancárias
+Estorno Tarifa,essencial,Contabilidade,Tarifas Bancárias
