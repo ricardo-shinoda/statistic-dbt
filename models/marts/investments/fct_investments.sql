@@ -20,21 +20,29 @@ cleaned_trades as (
             when upper(trim(ticker)) in ('DOLAR', 'DÓLAR', 'USD', 'USDBRL=X') then 'USDBRL=X'
             else upper(trim(ticker))
         end as ticker,
-        lower(transaction_type) as transaction_type,
+        lower(trim(transaction_type)) as transaction_type,
         coalesce(quantity, 0) as quantity,
         coalesce(total_amount, 0) as total_amount,
-        coalesce(unit_price, 0) as unit_price
+        coalesce(unit_price, 0) as unit_price,
+        case 
+            when upper(trim(ticker)) like '%CDB%' 
+              or upper(trim(ticker)) like '%RESERVA%' 
+              or upper(trim(ticker)) like '%TESOURO%' 
+              or upper(trim(ticker)) like '%LCI%' 
+              or upper(trim(ticker)) like '%LCA%' then true
+            else false
+        end as is_fixed_income
     from investments
     where ticker is not null
       and trim(ticker) <> ''
       and trim(ticker) <> '-'
-      and lower(transaction_type) in (
+      and lower(trim(transaction_type)) in (
           'compra', 'buy', 
           'venda', 'sell', 
           'aplicação', 'resgate', 
           'rendimento', 'saldo'
       )
-      and upper(ticker) not in (
+      and upper(trim(ticker)) not in (
           'TAXA LIQUIDAÇÃO', 
           'IRRF S/ OPERAÇÕES', 
           'IRRS S/ OPERAÇÕES', 
@@ -44,18 +52,48 @@ cleaned_trades as (
       )
 ),
 
--- 2. Agregação por ativo separando Compras, Vendas e Rendimentos
+-- 2. Agregação por ativo isolando proventos de Renda Variável
 trade_aggregation as (
     select
         investor,
         ticker,
-        sum(quantity) as net_quantity,
-        -- Total financeiro aplicado em compras
-        sum(case when lower(transaction_type) in ('compra', 'buy', 'aplicação') then total_amount else 0 end) as total_bought_brl,
-        -- Total financeiro resgatado em vendas (convertido para valor positivo para subtração)
-        sum(case when lower(transaction_type) in ('venda', 'sell', 'resgate') then abs(total_amount) else 0 end) as total_sold_brl,
-        sum(case when lower(transaction_type) in ('compra', 'buy', 'aplicação') then quantity else 0 end) as total_bought_qty,
-        -- Saldo Financeiro Atual Acumulado (Compras + Rendimentos - Vendas)
+        max(is_fixed_income::int)::boolean as is_fixed_income,
+        
+        -- Quantidade líquida: ignora 'rendimento' em Renda Variável para não somar quantity = 1 de proventos
+        sum(
+            case 
+                when is_fixed_income then quantity
+                when transaction_type in ('compra', 'buy', 'aplicação', 'saldo') then abs(quantity)
+                when transaction_type in ('venda', 'sell', 'resgate') then -abs(quantity)
+                else 0
+            end
+        ) as net_quantity,
+
+        -- Total financeiro aplicado em compras/aplicações
+        sum(
+            case 
+                when transaction_type in ('compra', 'buy', 'aplicação', 'saldo') then abs(total_amount)
+                else 0 
+            end
+        ) as total_bought_brl,
+
+        -- Total financeiro resgatado em vendas/resgates
+        sum(
+            case 
+                when transaction_type in ('venda', 'sell', 'resgate') then abs(total_amount)
+                else 0 
+            end
+        ) as total_sold_brl,
+
+        -- Quantidade total comprada (base para Preço Médio)
+        sum(
+            case 
+                when transaction_type in ('compra', 'buy', 'aplicação', 'saldo') then abs(quantity)
+                else 0 
+            end
+        ) as total_bought_qty,
+
+        -- Saldo Financeiro Atual Acumulado (usado para Renda Fixa: Aplicações + Rendimentos - Resgates)
         sum(total_amount) as net_amount_brl
     from cleaned_trades
     group by investor, ticker
@@ -66,22 +104,19 @@ active_positions as (
     select 
         investor,
         ticker,
+        is_fixed_income,
         net_quantity as quantity,
         greatest(net_amount_brl, 0) as net_amount_brl,
         case 
             -- Para Renda Fixa: Custo Histórico é a soma das aplicações MENOS os resgates efetuados
-            when upper(ticker) like '%CDB%' 
-              or upper(ticker) like '%RESERVA%' 
-              or upper(ticker) like '%TESOURO%' 
-              or upper(ticker) like '%LCI%' 
-              or upper(ticker) like '%LCA%' then round(greatest(total_bought_brl - total_sold_brl, 0)::numeric, 2)
+            when is_fixed_income then round(greatest(total_bought_brl - total_sold_brl, 0)::numeric, 2)
             
             -- Para Dólar, Ações e FIIs: Custo Histórico baseado na quantidade líquida x PM de compra
             else round((net_quantity * (case when total_bought_qty > 0 then total_bought_brl / total_bought_qty else 0 end))::numeric, 2)
         end as total_invested_brl
     from trade_aggregation
-    where net_quantity > 0.01 
-       or net_amount_brl > 0.01
+    where (is_fixed_income and net_amount_brl > 0.01)
+       or (not is_fixed_income and net_quantity > 0.01)
 )
 
 -- 4. Cruzamento final com o preço atual de mercado (yfinance) e tratamento de Renda Fixa
@@ -93,11 +128,7 @@ select
     cp.current_price as market_price,
     case 
         -- Renda Fixa: Valor de mercado é o saldo total acumulado (Aplicações + Rendimentos - Resgates)
-        when upper(i.ticker) like '%CDB%' 
-          or upper(i.ticker) like '%RESERVA%' 
-          or upper(i.ticker) like '%TESOURO%' 
-          or upper(i.ticker) like '%LCI%' 
-          or upper(i.ticker) like '%LCA%' then i.net_amount_brl
+        when i.is_fixed_income then i.net_amount_brl
 
         -- Renda Variável e Dólar: Valor atualizado via yfinance
         when cp.current_price is not null and cp.current_price > 0 
