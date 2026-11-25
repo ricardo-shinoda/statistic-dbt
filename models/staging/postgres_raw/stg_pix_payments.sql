@@ -22,43 +22,58 @@ cleaned as (
             when lower(s.descricao) ilike '%fatura%' then true
             when lower(s.descricao) ilike '%c6 bank%' then true
             else false
-        end as is_internal_transfer
+        end as is_internal_transfer,
+
+        -- Campos de classificação vindos da planilha
+        lower(trim(cast(s.tipo_gasto as varchar))) as tipo_gasto_raw,
+        trim(cast(s.category_name as varchar)) as category_name_raw,
+        trim(cast(s.subcategory_name1 as varchar)) as subcategory_name1_raw,
+        trim(cast(s.subcategory_name2 as varchar)) as subcategory_name2_raw
 
     from source_data s
 ),
 
 categorized as (
     select
-        c.*,
-        
-        -- 1. TIPO DE GASTO (Prioriza o Excel, usa fallback se vazio)
-        coalesce(nullif(lower(trim(s.tipo_gasto)), ''), 'variável') as tipo_gasto,
+        c.payment_id,
+        c.purchased_at,
+        c.amount_brl,
+        c.payment_type,
+        c.description,
+        c.comments,
+        c.is_internal_transfer,
+        c.is_payment_transaction,
+
+        -- 1. TIPO DE GASTO: mantém 'n/a' se estiver na planilha; só cai em 'variável' se vier vazio/nulo
+        case
+            when c.tipo_gasto_raw is null or c.tipo_gasto_raw = '' or c.tipo_gasto_raw in ('n/a', 'na') then 'n/a'
+            else c.tipo_gasto_raw
+        end as tipo_gasto,
 
         -- 2. CATEGORIA PRINCIPAL (Padroniza em minúsculo para bater com o cartão)
         case
-            when lower(trim(s.category_name)) in ('alimentacao', 'alimentação') then 'alimentação'
-            when nullif(trim(s.category_name), '') is not null then lower(trim(s.category_name))
+            when lower(c.category_name_raw) in ('alimentacao', 'alimentação') then 'alimentação'
+            when nullif(c.category_name_raw, '') is not null then lower(c.category_name_raw)
             else 'Não Classificado'
         end as category_name,
 
         -- 3. SUBCATEGORIA 1 (Unifica Restaurante / Delivery / iFood em 'Comida Fora')
         case
-            when lower(trim(s.subcategory_name1)) in (
+            when lower(c.subcategory_name1_raw) in (
                 'restaurante', 'restaurantes', 'ifood', '99food', 'delivery', 'lanche', 'lanches', 'comida fora'
             ) then 'Comida Fora'
-            when nullif(trim(s.subcategory_name1), '') is not null then trim(s.subcategory_name1)
+            when nullif(c.subcategory_name1_raw, '') is not null then c.subcategory_name1_raw
             else 'Não Especificado'
         end as subcategory_name1,
 
         -- 4. SUBCATEGORIA 2 (Opcional: preserva o detalhe original se era iFood ou Restaurante)
         case
-            when lower(trim(s.subcategory_name1)) in ('ifood', '99food', 'delivery') then 'Delivery'
-            when lower(trim(s.subcategory_name1)) in ('restaurante', 'restaurantes', 'lanche', 'lanches') then 'Restaurante / Lanche'
-            else coalesce(nullif(trim(s.subcategory_name2), ''), 'Não Especificado')
+            when lower(c.subcategory_name1_raw) in ('ifood', '99food', 'delivery') then 'Delivery'
+            when lower(c.subcategory_name1_raw) in ('restaurante', 'restaurantes', 'lanche', 'lanches') then 'Restaurante / Lanche'
+            else coalesce(nullif(c.subcategory_name2_raw, ''), 'Não Especificado')
         end as subcategory_name2
 
     from cleaned c
-    left join source_data s on c.payment_id = md5(cast(s.data_compra as varchar) || s.descricao || cast(s.valor as varchar) || s.arquivo_origem)
 )
 
 select
@@ -69,10 +84,10 @@ select
     description,
     comments,
     
-    coalesce(tipo_gasto, 'variável') as tipo_gasto,
-    coalesce(category_name, 'Não Classificado') as category_name,
-    coalesce(subcategory_name1, 'Não Especificado') as subcategory_name1,
-    coalesce(subcategory_name2, 'Não Especificado') as subcategory_name2,
+    tipo_gasto,
+    category_name,
+    subcategory_name1,
+    subcategory_name2,
     
     is_internal_transfer,
     is_payment_transaction
